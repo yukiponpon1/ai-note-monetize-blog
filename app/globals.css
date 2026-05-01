@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #ffffff;
+  background: #030303;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(239, 68, 68, 0.16), transparent 30rem),
+    linear-gradient(180deg, #030303 0%, #080808 48%, #030303 100%);
+}
+
+::selection {
+  background: rgba(239, 68, 68, 0.48);
+}
+
+.article-body {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.article-body h2 {
+  margin-top: 2.5rem;
+  border-top: 1px solid rgba(64, 64, 64, 0.95);
+  padding-top: 2rem;
+  font-size: 1.55rem;
+  line-height: 1.35;
+  font-weight: 800;
+  letter-spacing: 0;
+  color: #ffffff;
+}
+
+.article-body h3 {
+  margin-top: 2rem;
+  font-size: 1.22rem;
+  line-height: 1.45;
+  font-weight: 800;
+  letter-spacing: 0;
+  color: #ffffff;
+}
+
+.article-body h4 {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 800;
+}
+
+.article-body p,
+.article-body li {
+  line-height: 2;
+}
+
+.article-body p {
+  margin-top: 1.2rem;
+}
+
+.article-body ul,
+.article-body ol {
+  margin-top: 1rem;
+  padding-left: 1.4rem;
+}
+
+.article-body ul {
+  list-style: disc;
+}
+
+.article-body ol {
+  list-style: decimal;
+}
+
+.article-body a {
+  color: #f87171;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.article-body blockquote {
+  margin-top: 1.5rem;
+  border-left: 4px solid #ef4444;
+  background: rgba(16, 16, 16, 0.92);
+  padding: 1rem 1.2rem;
+}
+
+.article-body pre {
+  margin-top: 1.5rem;
+  overflow-x: auto;
+  border-radius: 0.5rem;
+  background: #000000;
+  padding: 1rem;
+  color: #ffffff;
+}
+
+.article-body code {
+  border-radius: 0.35rem;
+  background: rgba(239, 68, 68, 0.18);
+  padding: 0.1rem 0.3rem;
+  font-size: 0.9em;
+}
+
+.article-body pre code {
+  background: transparent;
+  padding: 0;
+}
