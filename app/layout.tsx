@@ -33,6 +33,9 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: ["/ogp.svg"],
   },
+  verification: {
+    google: "oI3ZWYxPTonGcQMutDvRlLTIxGVARcFsn64WWAA4CcM",
+  },
 };
 
 export default function RootLayout({
