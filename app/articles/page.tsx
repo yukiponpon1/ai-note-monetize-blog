@@ -34,14 +34,14 @@ export default function ArticlesPage() {
         </div>
       </div>
       <aside className="space-y-5" aria-label="記事一覧の補助情報">
-        <section className="rounded-2xl border border-line bg-surface p-5 shadow-soft">
+        <section className="rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-5 shadow-soft">
           <h2 className="text-lg font-bold text-ink">カテゴリ</h2>
           <div className="mt-4 grid gap-2">
             {categories.map((category) => (
               <Link
                 key={category.slug}
                 href={`/categories/${category.slug}`}
-                className="flex items-center justify-between rounded-xl border border-line bg-paper/60 px-3 py-2 text-sm text-muted transition hover:border-sky hover:text-ink"
+                className="flex items-center justify-between rounded-md border border-line bg-paper/70 px-3 py-2 text-sm text-muted transition hover:border-sky hover:text-ink"
               >
                 <span>{category.name}</span>
                 <span>{category.count}</span>

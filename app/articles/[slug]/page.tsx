@@ -64,11 +64,25 @@ export default async function ArticlePage({ params }: PageProps) {
   return (
     <article className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:px-8">
       <div className="min-w-0">
-        <header className="rounded-2xl border border-line bg-surface p-5 shadow-soft sm:p-8">
+        <nav
+          aria-label="パンくずリスト"
+          className="mb-5 flex flex-wrap items-center gap-2 text-sm text-muted"
+        >
+          <Link href="/" className="hover:text-coral">
+            ホーム
+          </Link>
+          <span>/</span>
+          <Link href="/articles" className="hover:text-coral">
+            記事一覧
+          </Link>
+          <span>/</span>
+          <span className="text-ink">{article.category}</span>
+        </nav>
+        <header className="overflow-hidden rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-5 shadow-soft sm:p-8">
           <div className="flex flex-wrap items-center gap-2 text-xs text-muted">
             <Link
               href={`/categories/${article.categorySlug}`}
-              className="rounded-full border border-sky/30 bg-sky/10 px-2.5 py-1 font-semibold text-sky transition hover:border-sky hover:text-ink"
+              className="rounded-md border border-sky/40 bg-sky/10 px-2.5 py-1 font-semibold text-sky transition hover:border-sky hover:bg-sky hover:text-white"
             >
               {article.category}
             </Link>
@@ -85,7 +99,7 @@ export default async function ArticlePage({ params }: PageProps) {
             {article.tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-line bg-paper/60 px-2.5 py-1 text-xs text-muted"
+                className="rounded-md border border-line bg-paper/70 px-2.5 py-1 text-xs text-muted"
               >
                 {tag}
               </span>
@@ -94,7 +108,7 @@ export default async function ArticlePage({ params }: PageProps) {
         </header>
 
         <div
-          className="article-body mt-8 rounded-2xl border border-line bg-surface p-5 shadow-soft sm:p-8"
+          className="article-body mt-8 rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-5 shadow-soft sm:p-8"
           dangerouslySetInnerHTML={{ __html: article.html }}
         />
 
@@ -119,9 +133,9 @@ export default async function ArticlePage({ params }: PageProps) {
         )}
       </div>
 
-      <aside className="space-y-5" aria-label="記事の補助情報">
+      <aside className="space-y-5 lg:sticky lg:top-28 lg:self-start" aria-label="記事の補助情報">
         <AdPlaceholder label="記事上部広告枠" />
-        <section className="rounded-2xl border border-line bg-surface p-5 shadow-soft">
+        <section className="rounded-lg border border-line bg-surface p-5 shadow-soft">
           <h2 className="text-lg font-bold text-ink">この記事の方針</h2>
           <p className="mt-3 text-sm leading-7 text-muted">
             AIツールの仕様、料金、利用条件は変わる場合があります。

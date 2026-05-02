@@ -7,20 +7,21 @@ type ArticleCtaProps = {
 };
 
 export const ArticleCta = ({ title, text }: ArticleCtaProps) => (
-  <section className="rounded-2xl border border-sky/40 bg-gradient-to-br from-surface via-surface to-paper px-5 py-6 text-ink shadow-glow sm:px-7">
+  <section className="overflow-hidden rounded-lg border border-sky/40 bg-gradient-to-br from-surface via-surface to-paper px-5 py-6 text-ink shadow-glow sm:px-7">
+    <div className="-mx-5 -mt-6 mb-6 h-1 bg-gradient-to-r from-sky via-coral to-amber sm:-mx-7" />
     <p className="text-sm font-semibold text-sky">有料noteへの案内</p>
     <h2 className="mt-2 text-2xl font-bold tracking-normal">{title}</h2>
     <p className="mt-3 max-w-2xl text-sm leading-7 text-muted">{text}</p>
     <div className="mt-5 flex flex-col gap-3 sm:flex-row">
       <Link
         href="/note"
-        className="inline-flex items-center justify-center rounded-full bg-sky px-5 py-3 text-sm font-bold text-white transition hover:bg-coral"
+        className="inline-flex items-center justify-center rounded-md bg-sky px-5 py-3 text-sm font-bold text-white transition hover:bg-coral"
       >
         note販売ページを見る
       </Link>
       <Link
         href="/free-gift"
-        className="inline-flex items-center justify-center rounded-full border border-line px-5 py-3 text-sm font-bold text-ink transition hover:border-sky hover:bg-sky/10"
+        className="inline-flex items-center justify-center rounded-md border border-line px-5 py-3 text-sm font-bold text-ink transition hover:border-sky hover:bg-sky/10"
       >
         無料特典から試す
       </Link>

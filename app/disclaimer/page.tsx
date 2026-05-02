@@ -26,7 +26,7 @@ export default function DisclaimerPage() {
       <h1 className="mt-3 text-4xl font-black tracking-normal text-ink">
         免責事項
       </h1>
-      <section className="mt-8 rounded-2xl border border-line bg-surface p-6 shadow-soft">
+      <section className="mt-8 rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-6 shadow-soft">
         <ul className="grid gap-4">
           {notices.map((notice) => (
             <li key={notice} className="text-sm leading-8 text-muted">

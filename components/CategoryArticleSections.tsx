@@ -27,7 +27,7 @@ export const CategoryArticleSections = ({
           aria-labelledby={`category-${category.slug}`}
           className="scroll-mt-24"
         >
-          <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div className="mb-5 flex flex-col gap-3 border-l-4 border-sky pl-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-sm font-bold text-sky">カテゴリー</p>
               <h2
@@ -39,7 +39,7 @@ export const CategoryArticleSections = ({
             </div>
             <Link
               href={`/categories/${category.slug}`}
-              className="text-sm font-bold text-sky transition hover:text-coral"
+              className="inline-flex w-fit rounded-md border border-line bg-surface px-3 py-2 text-sm font-bold text-sky transition hover:border-sky hover:text-coral"
             >
               {category.name}の記事をすべて見る
             </Link>

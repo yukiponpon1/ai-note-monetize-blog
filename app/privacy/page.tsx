@@ -39,7 +39,7 @@ export default function PrivacyPage() {
       </h1>
       <div className="mt-8 grid gap-4">
         {sections.map((section) => (
-          <section key={section.title} className="rounded-2xl border border-line bg-surface p-6 shadow-soft">
+          <section key={section.title} className="rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-6 shadow-soft">
             <h2 className="text-xl font-black tracking-normal text-ink">
               {section.title}
             </h2>

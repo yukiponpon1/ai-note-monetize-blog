@@ -39,7 +39,7 @@ export const SearchForm = ({
       type="search"
       aria-label="サイト内の記事を検索"
       placeholder={placeholder}
-      className={`w-full rounded-full border border-line bg-surface/90 text-ink shadow-soft outline-none transition placeholder:text-muted focus:border-sky focus:shadow-glow ${
+      className={`w-full rounded-lg border border-line bg-surface/90 text-ink shadow-soft outline-none transition placeholder:text-muted focus:border-sky focus:shadow-glow ${
         compact
           ? "py-2 pl-10 pr-4 text-sm"
           : "py-4 pl-12 pr-5 text-base"

@@ -31,7 +31,7 @@ export default function CategoriesPage() {
           <Link
             key={category.slug}
             href={`/categories/${category.slug}`}
-            className="rounded-2xl border border-line bg-surface p-6 shadow-soft transition hover:-translate-y-1 hover:border-sky hover:shadow-glow"
+            className="rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-6 shadow-soft transition hover:-translate-y-1 hover:border-sky hover:shadow-glow"
           >
             <h2 className="text-xl font-black tracking-normal text-ink">
               {category.name}

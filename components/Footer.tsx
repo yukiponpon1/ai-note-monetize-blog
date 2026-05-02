@@ -22,7 +22,7 @@ export const Footer = () => (
           <Link
             key={item.href}
             href={item.href}
-            className="rounded-full border border-line px-3 py-2 text-sm text-muted transition hover:border-sky hover:bg-surface hover:text-ink"
+            className="rounded-md border border-line px-3 py-2 text-sm text-muted transition hover:border-sky hover:bg-surface hover:text-ink"
           >
             {item.label}
           </Link>

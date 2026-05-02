@@ -5,6 +5,18 @@ import { CategoryArticleSections } from "@/components/CategoryArticleSections";
 import { SearchForm } from "@/components/SearchForm";
 import { getAllArticles, getCategories } from "@/lib/articles";
 
+const trustPoints = [
+  "収益を保証しない現実的な副業設計",
+  "仕様変更を前提にしたAIツール比較",
+  "AdSense審査を見据えた固定ページ整備",
+];
+
+const heroStats = [
+  { label: "公開記事", value: "11本" },
+  { label: "カテゴリ", value: "5種類" },
+  { label: "広告コード", value: "未設置" },
+];
+
 export default function HomePage() {
   const articles = getAllArticles();
   const featured = articles[0];
@@ -13,10 +25,20 @@ export default function HomePage() {
   return (
     <>
       <section className="border-b border-line bg-paper">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:px-8 lg:py-20">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:py-20">
           <div className="flex flex-col justify-center">
-            <p className="text-sm font-bold text-sky">
-              AI自動化と発信設計のプレミアムガイド
+            <div className="flex flex-wrap gap-2">
+              {trustPoints.map((point) => (
+                <span
+                  key={point}
+                  className="rounded-md border border-line bg-surface px-3 py-1.5 text-xs font-bold text-muted"
+                >
+                  {point}
+                </span>
+              ))}
+            </div>
+            <p className="mt-7 text-sm font-bold text-sky">
+              AI自動化と発信設計の実践ガイド
             </p>
             <h1 className="mt-4 max-w-4xl text-4xl font-black leading-tight tracking-normal text-ink sm:text-6xl">
               AI副業の始め方を、検索しやすい知識ベースとして整理する。
@@ -28,31 +50,55 @@ export default function HomePage() {
             <div className="mt-8">
               <SearchForm id="hero-search" />
             </div>
+            <dl className="mt-6 grid gap-3 sm:grid-cols-3">
+              {heroStats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-lg border border-line bg-surface/80 px-4 py-3"
+                >
+                  <dt className="text-xs font-semibold text-muted">{stat.label}</dt>
+                  <dd className="mt-1 text-xl font-black text-ink">{stat.value}</dd>
+                </div>
+              ))}
+            </dl>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/articles"
-                className="inline-flex items-center justify-center rounded-full bg-sky px-5 py-3 text-sm font-bold text-white shadow-glow transition hover:bg-coral"
+                className="inline-flex items-center justify-center rounded-md bg-sky px-5 py-3 text-sm font-bold text-white shadow-glow transition hover:bg-coral"
               >
                 最新記事を読む
               </Link>
               <Link
                 href="/free-gift"
-                className="inline-flex items-center justify-center rounded-full border border-line bg-surface px-5 py-3 text-sm font-bold text-ink transition hover:border-sky hover:bg-sky/10"
+                className="inline-flex items-center justify-center rounded-md border border-line bg-surface px-5 py-3 text-sm font-bold text-ink transition hover:border-sky hover:bg-sky/10"
               >
                 無料特典を見る
               </Link>
             </div>
           </div>
 
-          <aside className="grid gap-4" aria-label="注目記事と広告枠">
-            {featured ? (
-              <ArticleCard article={featured} />
-            ) : (
-              <div className="rounded-2xl border border-line bg-surface p-5 text-muted">
-                記事を準備中です。
+          <aside className="grid gap-4" aria-label="注目記事とサイト概要">
+            <div className="rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-5 shadow-soft">
+              <p className="text-sm font-bold text-coral">最初に読む記事</p>
+              {featured ? (
+                <div className="mt-4">
+                  <ArticleCard article={featured} />
+                </div>
+              ) : (
+                <div className="mt-4 rounded-lg border border-line bg-surface p-5 text-muted">
+                  記事を準備中です。
+                </div>
+              )}
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <div className="rounded-lg border border-line bg-surface p-5 shadow-soft">
+                <p className="text-sm font-bold text-sky">読者導線</p>
+                <p className="mt-2 text-sm leading-7 text-muted">
+                  無料記事、無料特典、有料noteの役割を分けて、判断しやすい流れにしています。
+                </p>
               </div>
-            )}
-            <AdPlaceholder label="トップページ広告枠" />
+              <AdPlaceholder label="トップページ広告枠" />
+            </div>
           </aside>
         </div>
       </section>
@@ -68,7 +114,10 @@ export default function HomePage() {
               AIエージェント比較、AI自動化、note販売導線、AdSense準備をセクションごとに整理しています。
             </p>
           </div>
-          <Link href="/articles" className="text-sm font-bold text-sky hover:text-coral">
+          <Link
+            href="/articles"
+            className="inline-flex w-fit rounded-md border border-line bg-surface px-3 py-2 text-sm font-bold text-sky hover:border-sky hover:text-coral"
+          >
             すべての記事を見る
           </Link>
         </div>
@@ -96,7 +145,7 @@ export default function HomePage() {
               <Link
                 key={category.slug}
                 href={`/categories/${category.slug}`}
-                className="rounded-2xl border border-line bg-surface p-5 shadow-soft transition hover:-translate-y-1 hover:border-sky hover:shadow-glow"
+                className="rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-5 shadow-soft transition hover:-translate-y-1 hover:border-sky hover:shadow-glow"
               >
                 <h3 className="text-lg font-bold text-ink">{category.name}</h3>
                 <span className="mt-2 block text-sm text-muted">
@@ -111,7 +160,7 @@ export default function HomePage() {
       <section className="mx-auto grid max-w-7xl gap-5 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:px-8">
         <Link
           href="/note"
-          className="rounded-2xl border border-line bg-surface p-6 text-ink shadow-soft transition hover:-translate-y-1 hover:border-coral hover:shadow-glow"
+          className="rounded-lg border border-line bg-gradient-to-br from-surface to-paper p-6 text-ink shadow-soft transition hover:-translate-y-1 hover:border-coral hover:shadow-glow"
         >
           <p className="text-sm font-bold text-coral">有料note導線</p>
           <h3 className="mt-3 text-2xl font-black tracking-normal">
@@ -123,7 +172,7 @@ export default function HomePage() {
         </Link>
         <Link
           href="/free-gift"
-          className="rounded-2xl border border-line bg-surface p-6 shadow-soft transition hover:-translate-y-1 hover:border-amber hover:shadow-glow"
+          className="rounded-lg border border-line bg-gradient-to-br from-surface to-paper p-6 shadow-soft transition hover:-translate-y-1 hover:border-amber hover:shadow-glow"
         >
           <p className="text-sm font-bold text-amber">無料特典</p>
           <h3 className="mt-3 text-2xl font-black tracking-normal text-ink">

@@ -54,7 +54,7 @@ export const ArticleSearchPanel = ({
 
   return (
     <section aria-labelledby="article-search-heading" className="grid gap-8">
-      <div className="rounded-2xl border border-line bg-surface p-5 shadow-soft sm:p-6">
+      <div className="rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-5 shadow-soft sm:p-6">
         <h2
           id="article-search-heading"
           className="text-2xl font-black tracking-normal text-ink"
@@ -84,10 +84,10 @@ export const ArticleSearchPanel = ({
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder="例: Claude Code、AdSense、無料特典"
-              className="w-full rounded-full border border-line bg-paper px-12 py-3 text-sm text-ink outline-none transition placeholder:text-muted focus:border-sky focus:shadow-glow"
+              className="w-full rounded-lg border border-line bg-paper px-12 py-3 text-sm text-ink outline-none transition placeholder:text-muted focus:border-sky focus:shadow-glow"
             />
           </label>
-          <p className="text-sm font-semibold text-muted">
+          <p className="rounded-md border border-line bg-paper px-3 py-2 text-center text-sm font-semibold text-muted">
             {filteredArticles.length}件の記事
           </p>
         </div>
@@ -95,7 +95,7 @@ export const ArticleSearchPanel = ({
           <button
             type="button"
             onClick={() => setActiveCategory("all")}
-            className={`rounded-full border px-4 py-2 text-sm font-bold transition ${
+            className={`rounded-md border px-4 py-2 text-sm font-bold transition ${
               activeCategory === "all"
                 ? "border-sky bg-sky text-white"
                 : "border-line bg-paper text-muted hover:border-sky hover:text-ink"
@@ -108,7 +108,7 @@ export const ArticleSearchPanel = ({
               key={category.slug}
               type="button"
               onClick={() => setActiveCategory(category.slug)}
-              className={`rounded-full border px-4 py-2 text-sm font-bold transition ${
+              className={`rounded-md border px-4 py-2 text-sm font-bold transition ${
                 activeCategory === category.slug
                   ? "border-sky bg-sky text-white"
                   : "border-line bg-paper text-muted hover:border-sky hover:text-ink"
@@ -140,7 +140,7 @@ export const ArticleSearchPanel = ({
           </section>
         ))
       ) : (
-        <p className="rounded-2xl border border-line bg-surface p-6 text-sm leading-7 text-muted">
+        <p className="rounded-lg border border-line bg-surface p-6 text-sm leading-7 text-muted">
           条件に一致する記事が見つかりませんでした。キーワードを短くするか、カテゴリーを「すべて」に戻して探してください。
         </p>
       )}

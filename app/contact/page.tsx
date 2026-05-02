@@ -22,14 +22,14 @@ export default function ContactPage() {
         現在は本番DB、API、個人情報を扱う送信処理を設置していません。
         公開時には運営者が管理できる連絡先、または安全に運用できるフォームへ差し替えてください。
       </p>
-      <form className="mt-8 grid gap-4 rounded-2xl border border-line bg-surface p-6 shadow-soft">
+      <form className="mt-8 grid gap-4 rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-6 shadow-soft">
         <label className="grid gap-2 text-sm font-bold text-ink">
           お名前
           <input
             type="text"
             disabled
             placeholder="公開時に入力欄を有効化"
-            className="rounded-xl border border-line bg-paper px-4 py-3 text-sm font-normal text-muted"
+            className="rounded-md border border-line bg-paper px-4 py-3 text-sm font-normal text-muted"
           />
         </label>
         <label className="grid gap-2 text-sm font-bold text-ink">
@@ -38,7 +38,7 @@ export default function ContactPage() {
             type="email"
             disabled
             placeholder="送信先設定後に有効化"
-            className="rounded-xl border border-line bg-paper px-4 py-3 text-sm font-normal text-muted"
+            className="rounded-md border border-line bg-paper px-4 py-3 text-sm font-normal text-muted"
           />
         </label>
         <label className="grid gap-2 text-sm font-bold text-ink">
@@ -47,13 +47,13 @@ export default function ContactPage() {
             disabled
             rows={6}
             placeholder="このサンプルでは保存されません"
-            className="rounded-xl border border-line bg-paper px-4 py-3 text-sm font-normal text-muted"
+            className="rounded-md border border-line bg-paper px-4 py-3 text-sm font-normal text-muted"
           />
         </label>
         <button
           type="button"
           disabled
-          className="rounded-full bg-sky/40 px-5 py-3 text-sm font-bold text-white"
+          className="rounded-md bg-sky/40 px-5 py-3 text-sm font-bold text-white"
         >
           送信機能は未設定です
         </button>

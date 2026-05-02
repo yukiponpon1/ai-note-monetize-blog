@@ -19,7 +19,7 @@ export default function ProfilePage() {
       <h1 className="mt-3 text-4xl font-black tracking-normal text-ink">
         AIツールを、手触りのある制作フローとして検証します。
       </h1>
-      <div className="mt-8 space-y-5 rounded-2xl border border-line bg-surface p-6 text-sm leading-8 text-muted shadow-soft">
+      <div className="mt-8 space-y-5 rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-6 text-sm leading-8 text-muted shadow-soft">
         <p>
           AI収益化ノートは、AI自動化とAIコーディングエージェントの使い方を、
           日本語で実践的に整理するブログです。ツールの優劣を断定するよりも、
@@ -37,13 +37,13 @@ export default function ProfilePage() {
       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
         <Link
           href="/articles"
-          className="inline-flex justify-center rounded-full bg-sky px-5 py-3 text-sm font-bold text-white hover:bg-coral"
+          className="inline-flex justify-center rounded-md bg-sky px-5 py-3 text-sm font-bold text-white hover:bg-coral"
         >
           記事を読む
         </Link>
         <Link
           href="/contact"
-          className="inline-flex justify-center rounded-full border border-line bg-surface px-5 py-3 text-sm font-bold text-ink hover:border-sky hover:bg-sky/10"
+          className="inline-flex justify-center rounded-md border border-line bg-surface px-5 py-3 text-sm font-bold text-ink hover:border-sky hover:bg-sky/10"
         >
           お問い合わせへ
         </Link>

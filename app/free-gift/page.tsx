@@ -33,13 +33,13 @@ export default function FreeGiftPage() {
       </p>
       <div className="mt-8 grid gap-4">
         {checklist.map((item, index) => (
-          <article key={item} className="rounded-2xl border border-line bg-surface p-5 shadow-soft">
+          <article key={item} className="rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-5 shadow-soft">
             <p className="text-sm font-bold text-coral">確認 {index + 1}</p>
             <p className="mt-2 text-lg font-bold leading-8 text-ink">{item}</p>
           </article>
         ))}
       </div>
-      <section className="mt-8 rounded-2xl border border-line bg-surface p-6 text-ink shadow-soft">
+      <section className="mt-8 rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-6 text-ink shadow-soft">
         <h2 className="text-2xl font-black tracking-normal">次に読むページ</h2>
         <p className="mt-3 text-sm leading-7 text-muted">
           チェックリストで方向性が見えたら、記事一覧から比較記事を読み、必要に応じて有料noteの案内ページへ進めます。
@@ -47,13 +47,13 @@ export default function FreeGiftPage() {
         <div className="mt-5 flex flex-col gap-3 sm:flex-row">
           <Link
             href="/articles"
-            className="inline-flex justify-center rounded-full bg-sky px-5 py-3 text-sm font-bold text-white hover:bg-coral"
+            className="inline-flex justify-center rounded-md bg-sky px-5 py-3 text-sm font-bold text-white hover:bg-coral"
           >
             記事一覧へ
           </Link>
           <Link
             href="/note"
-            className="inline-flex justify-center rounded-full border border-line px-5 py-3 text-sm font-bold text-ink hover:border-sky hover:bg-sky/10"
+            className="inline-flex justify-center rounded-md border border-line px-5 py-3 text-sm font-bold text-ink hover:border-sky hover:bg-sky/10"
           >
             有料noteの案内へ
           </Link>

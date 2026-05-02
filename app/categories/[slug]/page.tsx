@@ -67,7 +67,7 @@ export default async function CategoryPage({ params }: PageProps) {
         </div>
       </div>
       <aside className="space-y-5" aria-label="カテゴリの補助情報">
-        <section className="rounded-2xl border border-line bg-surface p-5 shadow-soft">
+        <section className="rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-5 shadow-soft">
           <h2 className="text-lg font-bold text-ink">掲載本数</h2>
           <p className="mt-2 text-3xl font-black text-sky">{articles.length}</p>
           <p className="mt-2 text-sm leading-7 text-muted">
