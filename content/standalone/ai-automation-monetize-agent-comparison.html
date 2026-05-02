@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI自動化で副業収益を狙う現実ルートとAIコーディングエージェント5選</title>
+<meta name="description" content="プログラミング初心者がAI自動化で副業を始めるための考え方、マネタイズの手順、主要AIコーディングエージェントの選び方と注意点を解説します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f5f0;
+  --surface: #ffffff;
+  --surface2: #f0ede6;
+  --text: #1a1714;
+  --text2: #5a5650;
+  --text3: #8a857e;
+  --accent: #c94a2a;
+  --accent2: #e8733a;
+  --green: #2a7a4a;
+  --green-bg: #edf7f2;
+  --amber: #b06010;
+  --amber-bg: #fff8ec;
+  --red: #c0302a;
+  --red-bg: #fef2f1;
+  --blue: #1a5a9a;
+  --blue-bg: #eef4fc;
+  --purple: #5a30b0;
+  --purple-bg: #f5eefe;
+  --border: #ddd9d0;
+  --radius: 10px;
+  --serif: 'Noto Serif JP', serif;
+  --sans: 'Noto Sans JP', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.85;
+  font-size: 15px;
+}
+
+.site-header {
+  background: var(--text);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.site-header .logo {
+  font-family: var(--mono);
+  color: var(--accent2);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .08em;
+}
+.site-header .badge {
+  background: var(--accent);
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.hero {
+  background: var(--text);
+  color: #fff;
+  padding: 64px 24px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 39px,
+    rgba(255,255,255,.035) 40px
+  );
+  opacity: .55;
+}
+.hero .tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent2);
+  letter-spacing: .12em;
+  margin-bottom: 18px;
+  position: relative;
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(23px, 4vw, 36px);
+  font-weight: 700;
+  line-height: 1.55;
+  max-width: 920px;
+  margin: 0 auto;
+  position: relative;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--accent2);
+}
+.hero .sub {
+  color: rgba(255,255,255,.6);
+  font-size: 13px;
+  position: relative;
+  margin-top: 16px;
+}
+.notice-bar {
+  background: #2a2520;
+  border-top: 1px solid #3a3530;
+  color: rgba(255,255,255,.66);
+  padding: 10px 24px;
+  text-align: center;
+  font-size: 12px;
+}
+.notice-bar strong { color: var(--accent2); }
+
+.wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 42px 20px 56px;
+}
+section { margin-bottom: 46px; }
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.section-label .num {
+  font-family: var(--mono);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 600;
+}
+h2 {
+  font-family: var(--serif);
+  font-size: clamp(20px, 3vw, 26px);
+  line-height: 1.45;
+  font-weight: 700;
+}
+h3 {
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.55;
+  margin: 28px 0 12px;
+}
+p { margin-bottom: 14px; color: var(--text); }
+strong { color: var(--accent); }
+em { font-style: normal; color: var(--accent); font-weight: 700; }
+
+.lead-box {
+  background: var(--text);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 28px;
+  margin-bottom: 24px;
+}
+.lead-box p { color: rgba(255,255,255,.78); }
+.lead-box .headline {
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 1.7;
+  color: #fff;
+  font-weight: 700;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 22px 0;
+}
+.summary-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+}
+.summary-card .label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text3);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.summary-card .value {
+  font-family: var(--serif);
+  font-weight: 700;
+  margin-top: 8px;
+  line-height: 1.55;
+}
+
+.action-bar {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  background: var(--green-bg);
+  border: 1px solid #b8e0cc;
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-top: 16px;
+}
+.action-bar .dot {
+  width: 8px;
+  height: 8px;
+  background: var(--green);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 11px;
+}
+.action-bar p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--green);
+  font-weight: 500;
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 22px 0;
+  background: var(--surface);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+th {
+  background: var(--text);
+  color: rgba(255,255,255,.88);
+  padding: 12px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: left;
+  white-space: nowrap;
+}
+td {
+  padding: 13px 14px;
+  border-top: 1px solid var(--border);
+  color: var(--text2);
+  font-size: 13px;
+  vertical-align: top;
+}
+tr:nth-child(even) td { background: var(--surface2); }
+.tool-name { font-weight: 700; color: var(--text); }
+.stars { color: #f0a020; letter-spacing: 1px; }
+.tag-pill {
+  display: inline-block;
+  margin-top: 5px;
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 10px;
+  font-weight: 700;
+}
+.tag-easy { background: var(--green-bg); color: var(--green); }
+.tag-warn { background: var(--amber-bg); color: var(--amber); }
+.tag-pro { background: var(--blue-bg); color: var(--blue); }
+.tag-danger { background: var(--red-bg); color: var(--red); }
+.tag-custom { background: var(--purple-bg); color: var(--purple); }
+
+.route-flow {
+  margin: 24px 0;
+  display: grid;
+  gap: 12px;
+}
+.route-step {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 14px;
+  align-items: stretch;
+}
+.route-step .step-num {
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius);
+  background: var(--text);
+  color: var(--accent2);
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 13px;
+}
+.route-step .step-body {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+.route-step h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+}
+.route-step p {
+  margin: 0;
+  color: var(--text2);
+  font-size: 13px;
+}
+
+.trap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 22px;
+}
+.trap-item {
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 18px;
+  background: var(--surface);
+}
+.trap-item.danger { background: var(--red-bg); border-color: #f0c0b8; }
+.trap-item.warn { background: var(--amber-bg); border-color: #f0d090; }
+.trap-item.blue { background: var(--blue-bg); border-color: #bfd2f0; }
+.trap-item h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+.trap-item p {
+  margin: 0;
+  color: var(--text2);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 22px;
+}
+.tool-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.tool-card-head {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background: var(--surface2);
+  padding: 14px 16px;
+}
+.tool-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+.ic-cur { background: var(--blue-bg); color: var(--blue); }
+.ic-cla { background: var(--red-bg); color: var(--red); }
+.ic-cop { background: var(--green-bg); color: var(--green); }
+.ic-cod { background: var(--purple-bg); color: var(--purple); }
+.ic-ant { background: var(--amber-bg); color: var(--amber); }
+.tool-card h3 {
+  margin: 0;
+  font-size: 16px;
+}
+.tool-card .sub {
+  color: var(--text3);
+  font-size: 11px;
+  margin: 2px 0 0;
+}
+.tool-card-body {
+  padding: 16px;
+}
+.tool-card-body p {
+  color: var(--text2);
+  font-size: 13px;
+}
+.tool-card-body .note {
+  border-left: 3px solid var(--accent);
+  background: var(--red-bg);
+  padding: 9px 11px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--text2);
+}
+
+.column-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px;
+}
+.column-box h3 { margin-top: 0; }
+
+.cta-box {
+  background: var(--text);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 26px;
+  margin-top: 28px;
+}
+.cta-box h2 { color: #fff; }
+.cta-box p { color: rgba(255,255,255,.68); }
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  border-radius: 6px;
+  padding: 0 16px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+}
+.button.primary { background: var(--accent); color: #fff; }
+.button.secondary { border: 1px solid rgba(255,255,255,.16); color: rgba(255,255,255,.82); }
+.button:hover { filter: brightness(1.08); }
+
+code {
+  font-family: var(--mono);
+  background: rgba(0,0,0,.07);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+footer {
+  background: var(--text);
+  color: rgba(255,255,255,.4);
+  text-align: center;
+  padding: 32px 24px;
+  font-size: 11px;
+  line-height: 2;
+}
+footer a { color: rgba(255,255,255,.6); text-decoration: none; }
+footer a:hover { color: var(--accent2); }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero h1, .hero .sub, .hero .tag { animation: fadeUp .5s ease both; }
+.hero h1 { animation-delay: .1s; }
+.hero .sub { animation-delay: .2s; }
+
+@media (max-width: 760px) {
+  .hero { padding: 46px 18px 42px; }
+  .wrap { padding: 32px 16px 48px; }
+  .summary-grid,
+  .trap-grid,
+  .tool-grid {
+    grid-template-columns: 1fr;
+  }
+  .route-step {
+    grid-template-columns: 42px 1fr;
+  }
+  .table-wrap {
+    margin-left: -16px;
+    margin-right: -16px;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+  .site-header {
+    padding: 12px 16px;
+  }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <span class="logo">AI-AUTOMATION.JP</span>
+  <span class="badge">副業実践ガイド</span>
+</header>
+
+<div class="hero">
+  <div class="tag">AI Automation Monetize Route</div>
+  <h1>AI自動化で副業収益を狙う<br><em>現実ルート</em>とAIコーディングエージェント5選</h1>
+  <p class="sub">プログラミング初心者が、AIを「案件化」するための考え方・手順・注意点。</p>
+</div>
+<div class="notice-bar">
+  <strong>注意：</strong>収益を保証する内容ではありません。AIツールの料金・仕様は変更される可能性があるため、導入前に公式情報を確認してください。
+</div>
+
+<main class="wrap">
+
+  <section>
+    <div class="section-label">
+      <span class="num">01</span>
+      <h2>AI自動化で副業収益を狙うなら、まず「時間を減らす仕事」を探そう</h2>
+    </div>
+    <div class="lead-box">
+      <p class="headline">AI自動化で稼ぐ本質は、AIツールを売ることではなく、誰かの作業時間と確認コストを減らすことです。</p>
+      <p>CursorやClaude Code、Codexを触り始めると、つい「すごいものを作らなきゃ」と考えがちです。しかし、最初に狙うべきなのは大きなサービス開発ではありません。問い合わせ分類、SNS投稿の下書き、議事録の整形、LP制作など、日常的に発生する面倒な作業を軽くすることです。</p>
+    </div>
+    <p>たとえば、毎回手作業で問い合わせを分類している会社がある。SNS投稿の下書きに毎日1時間かかっている個人事業主がいる。LPを作りたいけれど、外注費を大きくかけられない人がいる。こうした「面倒だけれど、売上や業務に関係する作業」を軽くできると、AI自動化は副業メニューになります。</p>
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="label">Target</div>
+        <div class="value">時間がかかる定型作業</div>
+      </div>
+      <div class="summary-card">
+        <div class="label">Value</div>
+        <div class="value">作業時間・確認漏れ・外注コストの削減</div>
+      </div>
+      <div class="summary-card">
+        <div class="label">First Step</div>
+        <div class="value">自分の業務を1つ自動化する</div>
+      </div>
+    </div>
+    <p>この記事では、プログラミング初心者から中級者に向けて、AI自動化で収益化を目指す現実的なルート、初心者が陥りやすい罠、そしてAIコーディングエージェント5選の使い分けを整理します。</p>
+  </section>
+
+  <section>
+    <div class="section-label">
+      <span class="num">02</span>
+      <h2>AI自動化で稼ぐ！初心者が知るべきマネタイズのリアルと罠</h2>
+    </div>
+    <p>AI自動化の副業で狙いやすい領域は、いきなり大きなSaaSを作ることではありません。初心者の勝ち筋は、<strong>自分の業務を自動化した体験を、小さなパッケージにして販売すること</strong>です。</p>
+    <p>たとえば会社員なら、日報の要約、問い合わせ文の分類、議事録の整形、SNS投稿案の生成など、すでに身近な面倒ごとがあるはずです。それをGASとAI API連携、Zapier、Make、簡単なWebアプリで改善できたら、その経験自体が商品になります。</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>手法</th>
+            <th>内容</th>
+            <th>初心者の始めやすさ</th>
+            <th>注意点</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tool-name">LP・Web制作</span></td>
+            <td>AIで構成やコードを作り、商品紹介ページを制作する</td>
+            <td><span class="tag-pill tag-easy">高い</span></td>
+            <td>デザイン確認とスマホ表示の調整が必要</td>
+          </tr>
+          <tr>
+            <td><span class="tool-name">社内業務ツール</span></td>
+            <td>GASやAI APIで要約、分類、通知を自動化する</td>
+            <td><span class="tag-pill tag-warn">中</span></td>
+            <td>APIコストと情報管理が重要</td>
+          </tr>
+          <tr>
+            <td><span class="tool-name">自動化コンサル</span></td>
+            <td>ZapierやMakeで業務フローを改善する</td>
+            <td><span class="tag-pill tag-warn">中</span></td>
+            <td>要件整理と運用説明が必要</td>
+          </tr>
+          <tr>
+            <td><span class="tool-name">SNS運用自動化</span></td>
+            <td>投稿案、見出し、分析メモを半自動化する</td>
+            <td><span class="tag-pill tag-easy">高い</span></td>
+            <td>投稿内容の最終判断は人間が行う</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="action-bar">
+      <div class="dot"></div>
+      <p>売るべきものは「AIで何でもできます」ではなく、「この作業を何分短縮できます」という具体的な改善です。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">
+      <span class="num">03</span>
+      <h2>初心者が陥りやすい3つの罠</h2>
+    </div>
+    <div class="trap-grid">
+      <div class="trap-item danger">
+        <h3>APIコストの罠</h3>
+        <p>AI APIを使う自動化では、無限ループや大量実行で請求が膨らむリスクがあります。テスト段階では上限設定、実行回数の制限、ログ確認を入れましょう。</p>
+      </div>
+      <div class="trap-item warn">
+        <h3>品質担保の罠</h3>
+        <p>AIはもっともらしい文章を出しますが、事実と違う内容を混ぜることがあります。これがハルシネーションです。最終チェックは人間が行う前提で設計しましょう。</p>
+      </div>
+      <div class="trap-item blue">
+        <h3>情報漏洩の罠</h3>
+        <p>クライアントデータや顧客情報をAIに入力する場合、学習利用の設定やデータ保持方針を確認する必要があります。学習オプトインはOFFにしましょう。</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">
+      <span class="num">04</span>
+      <h2>副業化までの現実ルート</h2>
+    </div>
+    <p>AI自動化で副業を始めるなら、今日やるべきことは大きなプロダクト作りではありません。まずは、自分の仕事や生活の中にある「毎回面倒な作業」を1つ選びましょう。</p>
+    <div class="route-flow">
+      <div class="route-step">
+        <div class="step-num">01</div>
+        <div class="step-body">
+          <h3>毎週30分以上かかる作業を書き出す</h3>
+          <p>日報、議事録、問い合わせ分類、SNS投稿案など、繰り返し発生する作業を探します。</p>
+        </div>
+      </div>
+      <div class="route-step">
+        <div class="step-num">02</div>
+        <div class="step-body">
+          <h3>AIで下書き・分類・要約・通知に分ける</h3>
+          <p>何を完全自動化するかではなく、どこを半自動化できるかを考えます。</p>
+        </div>
+      </div>
+      <div class="route-step">
+        <div class="step-num">03</div>
+        <div class="step-body">
+          <h3>CursorやCopilotで小さな試作品を作る</h3>
+          <p>最初から完璧なツールを作らず、自分が使える最小サイズで試します。</p>
+        </div>
+      </div>
+      <div class="route-step">
+        <div class="step-num">04</div>
+        <div class="step-body">
+          <h3>コスト・情報管理・品質チェックのルールを決める</h3>
+          <p>API上限、入力してよい情報、最終確認者をあらかじめ決めておきます。</p>
+        </div>
+      </div>
+      <div class="route-step">
+        <div class="step-num">05</div>
+        <div class="step-body">
+          <h3>改善前後の時間差を記録する</h3>
+          <p>「毎週2時間の作業を40分に短縮」など、提案に使える実績メモを作ります。</p>
+        </div>
+      </div>
+      <div class="route-step">
+        <div class="step-num">06</div>
+        <div class="step-body">
+          <h3>小さな販売メニューにする</h3>
+          <p>LP制作、業務ツール、自動化相談など、クライアントが買いやすい形にします。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">
+      <span class="num">05</span>
+      <h2>次世代AIコーディングエージェント5選</h2>
+    </div>
+    <p>AI自動化で副業を始めるなら、コードを書く力を補ってくれるAIコーディングエージェントは強力な味方になります。ただし、それぞれ得意な作業が違います。初心者は「話題のツールを全部入れる」より、目的に合うものを1つ選んで使い込むほうが成果に近づきやすいですね。</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>ツール</th>
+            <th>特徴</th>
+            <th>強み</th>
+            <th>弱み</th>
+            <th>合っている人</th>
+            <th>料金の目安</th>
+            <th>始めやすさ</th>
+            <th>カスタマイズ性</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tool-name">Cursor</span></td>
+            <td>VS Codeベースのエディタ型</td>
+            <td>Composerによる複数ファイル編集、VS Code環境の引き継ぎ</td>
+            <td>ターミナル操作まで完全自動ではない</td>
+            <td>エディタ内で完結したい人</td>
+            <td>無料あり、Pro月額$20目安</td>
+            <td><span class="stars">★★★★★</span></td>
+            <td>中〜高</td>
+          </tr>
+          <tr>
+            <td><span class="tool-name">Claude Code</span></td>
+            <td>ターミナルで動く自律型CLI</td>
+            <td>コード作成、テスト実行、エラー修正の自律ループ</td>
+            <td>GUI差分確認には慣れが必要</td>
+            <td>ターミナルに慣れた中〜上級者</td>
+            <td>API従量課金目安</td>
+            <td><span class="stars">★★☆☆☆</span></td>
+            <td>高</td>
+          </tr>
+          <tr>
+            <td><span class="tool-name">GitHub Copilot</span></td>
+            <td>既存エディタの拡張機能型</td>
+            <td>予測入力が速く、日常コーディングを軽くする</td>
+            <td>大規模な自動生成には不向き</td>
+            <td>自分で構成を考えたい人</td>
+            <td>個人月額$10目安</td>
+            <td><span class="stars">★★★★★</span></td>
+            <td>低</td>
+          </tr>
+          <tr>
+            <td><span class="tool-name">Codex</span></td>
+            <td>CLIやプロンプトで動かす特化型</td>
+            <td>Goal、Context、Constraintsを固めると精度が高い</td>
+            <td>雑な指示では機能しにくい</td>
+            <td>要件定義を言語化できる人</td>
+            <td>API従量課金目安</td>
+            <td><span class="stars">★★★☆☆</span></td>
+            <td>極めて高い</td>
+          </tr>
+          <tr>
+            <td><span class="tool-name">Antigravity</span></td>
+            <td>ブラウザやターミナルを横断する自律型</td>
+            <td>MCP連携で人間に近いテストフローを回せる</td>
+            <td>自律性が高く大規模変更のリスクがある</td>
+            <td>AIを相棒として動かしたい人</td>
+            <td>環境により従量課金</td>
+            <td><span class="stars">★★☆☆☆</span></td>
+            <td>最高</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tool-grid">
+      <div class="tool-card">
+        <div class="tool-card-head">
+          <div class="tool-icon ic-cur">Cur</div>
+          <div>
+            <h3>Cursor</h3>
+            <p class="sub">初心者が最初に触りやすいエディタ型</p>
+          </div>
+        </div>
+        <div class="tool-card-body">
+          <p>エディタ内で変更を目で追いやすく、複数ファイル編集も試しやすいツールです。AI自動化の小さな試作品づくりに向いています。</p>
+          <div class="note">注意：Composerが作った大量の差分を、目視せず全適用しないこと。</div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-head">
+          <div class="tool-icon ic-cop">Cop</div>
+          <div>
+            <h3>GitHub Copilot</h3>
+            <p class="sub">日々のコード補完を軽くする拡張機能型</p>
+          </div>
+        </div>
+        <div class="tool-card-body">
+          <p>コメント駆動で小さな関数を作る使い方が強いです。ゼロから巨大なシステムを任せるより、日常作業の補助に向いています。</p>
+          <div class="note">注意：公開コードと似たコードが出る可能性があるため、設定と内容確認を行うこと。</div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-head">
+          <div class="tool-icon ic-cla">Cla</div>
+          <div>
+            <h3>Claude Code</h3>
+            <p class="sub">自律ループが強いCLIエージェント</p>
+          </div>
+        </div>
+        <div class="tool-card-body">
+          <p>コードを書く、自分でテストする、エラーを読んで直すという流れを任せやすいツールです。中〜上級者向けです。</p>
+          <div class="note">注意：<code>rm</code> や <code>git push</code> のような操作を無思考で承認しないこと。</div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-head">
+          <div class="tool-icon ic-cod">Cod</div>
+          <div>
+            <h3>Codex</h3>
+            <p class="sub">要件定義を書けるほど強いプロンプト型</p>
+          </div>
+        </div>
+        <div class="tool-card-body">
+          <p><code>Goal</code>、<code>Context</code>、<code>Constraints</code>、<code>Done when</code> を分けて指示すると精度が上がります。</p>
+          <div class="note">注意：「いい感じにして」のような曖昧な指示では失敗しやすいです。</div>
+        </div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-card-head">
+          <div class="tool-icon ic-ant">Ant</div>
+          <div>
+            <h3>Antigravity</h3>
+            <p class="sub">外部ツール連携まで横断する高度エージェント</p>
+          </div>
+        </div>
+        <div class="tool-card-body">
+          <p>ブラウザ操作、ターミナル操作、外部ツール連携を横断できるため、テストフローまで任せやすい可能性があります。</p>
+          <div class="note">注意：必ず最初に実装計画を作らせ、承認後に進める形にしましょう。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">
+      <span class="num">06</span>
+      <h2>コラム：なぜ今、Claude Codeが話題なのか？</h2>
+    </div>
+    <div class="column-box">
+      <h3>話題の理由は「自律的に試行錯誤する感覚」</h3>
+      <p>Claude Codeが話題になっている理由は、単にコードが書けるからではありません。多くのエンジニアが驚いているのは、コードを書く、自分でテストコマンドを叩く、エラーが出たらログを読む、修正する、もう一度試す、というループをAI側が回せる点です。</p>
+      <p>さらに、プロジェクト全体の文脈を読んでくれる感覚があり、「シニアエンジニアにタスクを渡しているようだ」と語られることもあります。ただし、自律的に動くということは、間違った方向にも進めるということです。削除コマンドやgit操作の承認は、内容を理解してから行いましょう。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">
+      <span class="num">07</span>
+      <h2>まとめ：初心者が今日から始めるべきファーストステップ</h2>
+    </div>
+    <p>初心者が一番避けたいのは、AIツールの名前だけを追いかけて、誰の課題も解決していない状態になることです。収益化の入口は、派手な最新技術ではなく、目の前の人の面倒を減らすことにあります。</p>
+    <div class="action-bar">
+      <div class="dot"></div>
+      <p>まずは1つ、自分の作業を自動化してみましょう。そこで得た失敗、改善、注意点こそが、副業メニューの最初の商品になります。</p>
+    </div>
+    <div class="cta-box">
+      <h2>次に読むおすすめ記事</h2>
+      <p>AIコーディングエージェントの違いをもう少し詳しく比較したい場合は、徹底比較記事もあわせて読むと全体像がつかみやすくなります。</p>
+      <div class="cta-actions">
+        <a class="button primary" href="/articles/ai-agent-hikaku-2026">AIエージェント徹底比較を読む</a>
+        <a class="button secondary" href="/note">有料noteの案内を見る</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>AI-AUTOMATION.JP / AI収益化ノート</p>
+  <p>本記事はAI自動化と副業化の考え方を整理する一般情報です。収益や成果を保証するものではありません。</p>
+</footer>
+
+</body>
+</html>
