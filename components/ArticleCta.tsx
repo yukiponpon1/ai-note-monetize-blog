@@ -7,10 +7,12 @@ type ArticleCtaProps = {
 };
 
 export const ArticleCta = ({ title, text }: ArticleCtaProps) => (
-  <section className="overflow-hidden rounded-lg border border-sky/40 bg-gradient-to-br from-surface via-surface to-paper px-5 py-6 text-ink shadow-glow sm:px-7">
-    <div className="-mx-5 -mt-6 mb-6 h-1 bg-gradient-to-r from-sky via-coral to-amber sm:-mx-7" />
-    <p className="text-sm font-semibold text-sky">有料noteへの案内</p>
-    <h2 className="mt-2 text-2xl font-bold tracking-normal">{title}</h2>
+  <section className="overflow-hidden rounded-lg border border-sky/30 bg-surface px-5 py-6 text-ink shadow-soft sm:px-7">
+    <div className="-mx-5 -mt-6 mb-6 h-1 bg-sky sm:-mx-7" />
+    <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-sky">
+      有料noteへの案内
+    </p>
+    <h2 className="mt-2 font-serif text-2xl font-bold tracking-normal">{title}</h2>
     <p className="mt-3 max-w-2xl text-sm leading-7 text-muted">{text}</p>
     <div className="mt-5 flex flex-col gap-3 sm:flex-row">
       <Link

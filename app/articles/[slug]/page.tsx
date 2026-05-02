@@ -80,18 +80,18 @@ export default async function ArticlePage({ params }: PageProps) {
           <span>/</span>
           <span className="text-ink">{article.category}</span>
         </nav>
-        <header className="overflow-hidden rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-5 shadow-soft sm:p-8">
+        <header className="overflow-hidden rounded-lg border border-line bg-surface p-5 shadow-soft sm:p-8">
           <div className="flex flex-wrap items-center gap-2 text-xs text-muted">
             <Link
               href={`/categories/${article.categorySlug}`}
-              className="rounded-md border border-sky/40 bg-sky/10 px-2.5 py-1 font-semibold text-sky transition hover:border-sky hover:bg-sky hover:text-white"
+              className="rounded-md border border-sky/25 bg-[#fef2f1] px-2.5 py-1 font-semibold text-sky transition hover:border-sky hover:bg-sky hover:text-white"
             >
               {article.category}
             </Link>
             <span>{formatDate(article.date)}</span>
             <span>{article.readingMinutes}分で読める</span>
           </div>
-          <h1 className="mt-4 text-3xl font-black leading-tight tracking-normal text-ink sm:text-5xl">
+          <h1 className="mt-4 font-serif text-3xl font-bold leading-tight tracking-normal text-ink sm:text-5xl">
             {article.title}
           </h1>
           <p className="mt-5 text-base leading-8 text-muted">
@@ -110,7 +110,7 @@ export default async function ArticlePage({ params }: PageProps) {
         </header>
 
         <div
-          className="article-body mt-8 rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-5 shadow-soft sm:p-8"
+          className="article-body mt-8 rounded-lg border border-line bg-surface p-5 shadow-soft sm:p-8"
           dangerouslySetInnerHTML={{ __html: article.html }}
         />
 
@@ -123,7 +123,7 @@ export default async function ArticlePage({ params }: PageProps) {
 
         {relatedArticles.length > 0 && (
           <section className="mt-10">
-            <h2 className="text-2xl font-black tracking-normal text-ink">
+            <h2 className="font-serif text-2xl font-bold tracking-normal text-ink">
               関連記事
             </h2>
             <div className="mt-5 grid gap-5 md:grid-cols-3">
@@ -138,7 +138,7 @@ export default async function ArticlePage({ params }: PageProps) {
       <aside className="space-y-5 lg:sticky lg:top-28 lg:self-start" aria-label="記事の補助情報">
         <AdPlaceholder label="記事上部広告枠" />
         <section className="rounded-lg border border-line bg-surface p-5 shadow-soft">
-          <h2 className="text-lg font-bold text-ink">この記事の方針</h2>
+          <h2 className="font-serif text-lg font-bold text-ink">この記事の方針</h2>
           <p className="mt-3 text-sm leading-7 text-muted">
             AIツールの仕様、料金、利用条件は変わる場合があります。
             本文では断定を避け、公開時点で確認したい観点を中心にまとめています。

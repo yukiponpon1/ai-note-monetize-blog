@@ -14,15 +14,17 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <section className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-      <p className="text-sm font-bold text-sky">お問い合わせ</p>
-      <h1 className="mt-3 text-4xl font-black tracking-normal text-ink">
+      <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-sky">
+        Contact
+      </p>
+      <h1 className="mt-3 font-serif text-4xl font-bold tracking-normal text-ink">
         ご連絡について
       </h1>
       <p className="mt-5 max-w-3xl text-sm leading-8 text-muted">
         現在は本番DB、API、個人情報を扱う送信処理を設置していません。
         公開時には運営者が管理できる連絡先、または安全に運用できるフォームへ差し替えてください。
       </p>
-      <form className="mt-8 grid gap-4 rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-6 shadow-soft">
+      <form className="mt-8 grid gap-4 rounded-lg border border-line bg-surface p-6 shadow-soft">
         <label className="grid gap-2 text-sm font-bold text-ink">
           お名前
           <input

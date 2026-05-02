@@ -18,8 +18,10 @@ export default function CategoriesPage() {
 
   return (
     <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <p className="text-sm font-bold text-sky">カテゴリ一覧</p>
-      <h1 className="mt-3 text-4xl font-black tracking-normal text-ink sm:text-5xl">
+      <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-sky">
+        Categories
+      </p>
+      <h1 className="mt-3 font-serif text-4xl font-bold tracking-normal text-ink sm:text-5xl">
         テーマ別に記事を探す
       </h1>
       <p className="mt-4 max-w-3xl text-sm leading-7 text-muted">
@@ -31,9 +33,9 @@ export default function CategoriesPage() {
           <Link
             key={category.slug}
             href={`/categories/${category.slug}`}
-            className="rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-6 shadow-soft transition hover:-translate-y-1 hover:border-sky hover:shadow-glow"
+            className="rounded-lg border border-line bg-surface p-6 shadow-soft transition hover:-translate-y-1 hover:border-sky hover:shadow-glow"
           >
-            <h2 className="text-xl font-black tracking-normal text-ink">
+            <h2 className="font-serif text-xl font-bold tracking-normal text-ink">
               {category.name}
             </h2>
             <p className="mt-3 text-sm leading-7 text-muted">

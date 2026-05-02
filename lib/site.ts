@@ -11,7 +11,6 @@ export const siteConfig = {
 export const navigation = [
   { href: "/", label: "ホーム" },
   { href: "/articles", label: "記事一覧" },
-  { href: "/note", label: "有料note" },
-  { href: "/free-gift", label: "無料特典" },
+  { href: "/categories", label: "カテゴリ" },
   { href: "/profile", label: "プロフィール" },
 ];

@@ -33,14 +33,16 @@ const sections = [
 export default function PrivacyPage() {
   return (
     <section className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-      <p className="text-sm font-bold text-moss">固定ページ</p>
-      <h1 className="mt-3 text-4xl font-black tracking-normal text-ink">
+      <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-moss">
+        Policy
+      </p>
+      <h1 className="mt-3 font-serif text-4xl font-bold tracking-normal text-ink">
         プライバシーポリシー
       </h1>
       <div className="mt-8 grid gap-4">
         {sections.map((section) => (
-          <section key={section.title} className="rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-6 shadow-soft">
-            <h2 className="text-xl font-black tracking-normal text-ink">
+          <section key={section.title} className="rounded-lg border border-line bg-surface p-6 shadow-soft">
+            <h2 className="font-serif text-xl font-bold tracking-normal text-ink">
               {section.title}
             </h2>
             <p className="mt-3 text-sm leading-8 text-muted">{section.body}</p>

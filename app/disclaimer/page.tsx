@@ -22,11 +22,13 @@ const notices = [
 export default function DisclaimerPage() {
   return (
     <section className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-      <p className="text-sm font-bold text-coral">固定ページ</p>
-      <h1 className="mt-3 text-4xl font-black tracking-normal text-ink">
+      <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-sky">
+        Disclaimer
+      </p>
+      <h1 className="mt-3 font-serif text-4xl font-bold tracking-normal text-ink">
         免責事項
       </h1>
-      <section className="mt-8 rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-6 shadow-soft">
+      <section className="mt-8 rounded-lg border border-line bg-surface p-6 shadow-soft">
         <ul className="grid gap-4">
           {notices.map((notice) => (
             <li key={notice} className="text-sm leading-8 text-muted">

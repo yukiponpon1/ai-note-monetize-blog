@@ -22,8 +22,10 @@ export default function ArticlesPage() {
   return (
     <section className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_300px] lg:px-8">
       <div>
-        <p className="text-sm font-bold text-coral">記事一覧と検索</p>
-        <h1 className="mt-2 text-4xl font-black tracking-normal text-ink sm:text-5xl">
+        <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-sky">
+          Articles
+        </p>
+        <h1 className="mt-3 font-serif text-4xl font-bold tracking-normal text-ink sm:text-5xl">
           AI活用と収益導線のロードマップ
         </h1>
         <p className="mt-4 max-w-3xl text-sm leading-7 text-muted">
@@ -34,8 +36,8 @@ export default function ArticlesPage() {
         </div>
       </div>
       <aside className="space-y-5" aria-label="記事一覧の補助情報">
-        <section className="rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-5 shadow-soft">
-          <h2 className="text-lg font-bold text-ink">カテゴリ</h2>
+        <section className="rounded-lg border border-line bg-surface p-5 shadow-soft">
+          <h2 className="font-serif text-lg font-bold text-ink">カテゴリ</h2>
           <div className="mt-4 grid gap-2">
             {categories.map((category) => (
               <Link

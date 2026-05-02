@@ -3,8 +3,8 @@ type AdPlaceholderProps = {
 };
 
 export const AdPlaceholder = ({ label = "広告枠プレースホルダー" }: AdPlaceholderProps) => (
-  <aside className="rounded-lg border border-dashed border-line bg-surface/70 px-4 py-6 text-center shadow-soft">
-    <p className="text-xs font-semibold uppercase tracking-normal text-muted">
+  <aside className="rounded-lg border border-dashed border-line bg-paper px-4 py-6 text-center">
+    <p className="font-mono text-xs font-semibold uppercase tracking-[0.12em] text-muted">
       {label}
     </p>
     <p className="mt-2 text-sm leading-6 text-muted">

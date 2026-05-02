@@ -29,10 +29,12 @@ export const CategoryArticleSections = ({
         >
           <div className="mb-5 flex flex-col gap-3 border-l-4 border-sky pl-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-sm font-bold text-sky">カテゴリー</p>
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-sky">
+                Category
+              </p>
               <h2
                 id={`category-${category.slug}`}
-                className="mt-2 text-2xl font-black tracking-normal text-ink sm:text-3xl"
+                className="mt-2 font-serif text-2xl font-bold tracking-normal text-ink sm:text-3xl"
               >
                 {category.name}
               </h2>

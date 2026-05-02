@@ -53,8 +53,10 @@ export default async function CategoryPage({ params }: PageProps) {
   return (
     <section className="mx-auto grid max-w-7xl gap-8 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_300px] lg:px-8">
       <div>
-        <p className="text-sm font-bold text-sky">カテゴリ</p>
-        <h1 className="mt-2 text-4xl font-black tracking-normal text-ink sm:text-5xl">
+        <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-sky">
+          Category
+        </p>
+        <h1 className="mt-3 font-serif text-4xl font-bold tracking-normal text-ink sm:text-5xl">
           {category.name}の記事
         </h1>
         <p className="mt-4 max-w-3xl text-sm leading-7 text-muted">
@@ -67,8 +69,8 @@ export default async function CategoryPage({ params }: PageProps) {
         </div>
       </div>
       <aside className="space-y-5" aria-label="カテゴリの補助情報">
-        <section className="rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-5 shadow-soft">
-          <h2 className="text-lg font-bold text-ink">掲載本数</h2>
+        <section className="rounded-lg border border-line bg-surface p-5 shadow-soft">
+          <h2 className="font-serif text-lg font-bold text-ink">掲載本数</h2>
           <p className="mt-2 text-3xl font-black text-sky">{articles.length}</p>
           <p className="mt-2 text-sm leading-7 text-muted">
             関連記事は今後も追加できます。Markdownを増やすだけで一覧に反映されます。

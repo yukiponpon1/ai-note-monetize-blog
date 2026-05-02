@@ -54,10 +54,10 @@ export const ArticleSearchPanel = ({
 
   return (
     <section aria-labelledby="article-search-heading" className="grid gap-8">
-      <div className="rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-5 shadow-soft sm:p-6">
+      <div className="rounded-lg border border-line bg-surface p-5 shadow-soft sm:p-6">
         <h2
           id="article-search-heading"
-          className="text-2xl font-black tracking-normal text-ink"
+          className="font-serif text-2xl font-bold tracking-normal text-ink"
         >
           記事を検索する
         </h2>
@@ -84,7 +84,7 @@ export const ArticleSearchPanel = ({
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               placeholder="例: Claude Code、Cursor、AI自動化"
-              className="w-full rounded-lg border border-line bg-paper px-12 py-3 text-sm text-ink outline-none transition placeholder:text-muted focus:border-sky focus:shadow-glow"
+              className="w-full rounded-md border border-line bg-paper px-12 py-3 text-sm text-ink outline-none transition placeholder:text-muted focus:border-sky focus:shadow-glow"
             />
           </label>
           <p className="rounded-md border border-line bg-paper px-3 py-2 text-center text-sm font-semibold text-muted">
@@ -128,7 +128,7 @@ export const ArticleSearchPanel = ({
           >
             <h2
               id={`search-category-${group.category.slug}`}
-              className="text-2xl font-black tracking-normal text-ink"
+              className="font-serif text-2xl font-bold tracking-normal text-ink"
             >
               {group.category.name}
             </h2>

@@ -15,11 +15,13 @@ export const metadata: Metadata = {
 export default function ProfilePage() {
   return (
     <section className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
-      <p className="text-sm font-bold text-moss">プロフィール</p>
-      <h1 className="mt-3 text-4xl font-black tracking-normal text-ink">
+      <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-moss">
+        Profile
+      </p>
+      <h1 className="mt-3 font-serif text-4xl font-bold tracking-normal text-ink">
         AIツールを、手触りのある制作フローとして検証します。
       </h1>
-      <div className="mt-8 space-y-5 rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-6 text-sm leading-8 text-muted shadow-soft">
+      <div className="mt-8 space-y-5 rounded-lg border border-line bg-surface p-6 text-sm leading-8 text-muted shadow-soft">
         <p>
           AI収益化ノートは、AI自動化とAIコーディングエージェントの使い方を、
           日本語で実践的に整理するブログです。ツールの優劣を断定するよりも、

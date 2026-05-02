@@ -1,147 +1,113 @@
 import Link from "next/link";
-import { AdPlaceholder } from "@/components/AdPlaceholder";
 import { CategoryArticleSections } from "@/components/CategoryArticleSections";
 import { SearchForm } from "@/components/SearchForm";
 import { getAllArticles, getCategories } from "@/lib/articles";
 
-const trustPoints = [
-  "収益を保証しない現実的な副業設計",
-  "仕様変更を前提にしたAIツール比較",
-  "AIツールの実践比較を中心に整理",
+const featuredSlug = "ai-agent-hikaku-2026";
+
+const guidePoints = [
+  "初心者向けの選び方",
+  "料金と始めやすさを比較",
+  "副業で使う時の注意点",
 ];
 
 export default function HomePage() {
   const articles = getAllArticles();
-  const featured =
-    articles.find((article) => article.slug === "ai-agent-hikaku-2026") ??
-    articles[0];
   const categories = getCategories();
-  const primaryArticleHref = featured ? `/articles/${featured.slug}` : "/articles";
-  const heroStats = [
-    { label: "公開記事", value: `${articles.length}本` },
-    { label: "カテゴリ", value: `${categories.length}種類` },
-    { label: "広告コード", value: "未設置" },
-  ];
+  const featured =
+    articles.find((article) => article.slug === featuredSlug) ?? articles[0];
+  const featuredHref = featured ? `/articles/${featured.slug}` : "/articles";
 
   return (
     <>
-      <section className="border-b border-line bg-paper">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:py-20">
-          <div className="flex flex-col justify-center">
-            <div className="flex flex-wrap gap-2">
-              {trustPoints.map((point) => (
+      <section className="bg-ink text-white">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:px-8 lg:py-20">
+          <div>
+            <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-coral">
+              AI Coding Agent Guide
+            </p>
+            <h1 className="mt-5 max-w-3xl font-serif text-4xl font-bold leading-tight tracking-normal sm:text-5xl">
+              AIエージェント選びを、シンプルに判断できるサイトへ。
+            </h1>
+            <p className="mt-5 max-w-2xl text-sm leading-8 text-white/60">
+              Claude Code、Codex、Antigravity、Cursor、GitHub Copilotを中心に、
+              料金・使いやすさ・副業での活用を落ち着いて比較します。
+            </p>
+            <div className="mt-7 flex flex-wrap gap-2">
+              {guidePoints.map((point) => (
                 <span
                   key={point}
-                  className="rounded-md border border-line bg-surface px-3 py-1.5 text-xs font-bold text-muted shadow-soft"
+                  className="rounded-md border border-white/10 bg-white/5 px-3 py-1.5 text-xs font-bold text-white/70"
                 >
                   {point}
                 </span>
               ))}
             </div>
-            <p className="mt-7 text-sm font-bold text-sky">
-              AI自動化と発信設計の実践ガイド
-            </p>
-            <h1 className="mt-4 max-w-4xl text-4xl font-black leading-tight tracking-normal text-ink sm:text-6xl">
-              読む人にも、作る人にもやさしいAI副業ブログ。
-            </h1>
-            <p className="mt-6 max-w-2xl text-base leading-8 text-muted">
-              Claude Code、Codex、Cursor、GitHub Copilot、Google Antigravity
-              などの使い分けを、仕様変更がある前提で検証します。収益は保証せず、読者が無理なく試せる判断材料を積み上げます。
-            </p>
-            <div className="mt-8">
-              <SearchForm id="hero-search" />
-            </div>
-            <dl className="mt-6 grid gap-3 sm:grid-cols-3">
-              {heroStats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="rounded-lg border border-line bg-surface px-4 py-3 shadow-soft"
-                >
-                  <dt className="text-xs font-semibold text-muted">{stat.label}</dt>
-                  <dd className="mt-1 text-xl font-black text-ink">{stat.value}</dd>
-                </div>
-              ))}
-            </dl>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
-                href={primaryArticleHref}
-                className="inline-flex items-center justify-center rounded-md bg-sky px-5 py-3 text-sm font-bold text-white shadow-glow transition hover:bg-coral"
+                href={featuredHref}
+                className="inline-flex items-center justify-center rounded-md bg-sky px-5 py-3 text-sm font-bold text-white transition hover:bg-coral"
               >
-                注目記事を読む
+                特集記事を読む
               </Link>
               <Link
-                href="/free-gift"
-                className="inline-flex items-center justify-center rounded-md border border-line bg-surface px-5 py-3 text-sm font-bold text-ink transition hover:border-sky hover:bg-sky/10"
+                href="/articles"
+                className="inline-flex items-center justify-center rounded-md border border-white/20 px-5 py-3 text-sm font-bold text-white/80 transition hover:border-coral hover:text-white"
               >
-                無料特典を見る
+                記事一覧を見る
               </Link>
             </div>
           </div>
 
-          <aside className="grid gap-4" aria-label="注目記事とサイト概要">
-            <div className="overflow-hidden rounded-lg border border-line bg-surface shadow-soft">
+          <article className="overflow-hidden rounded-lg border border-white/10 bg-white shadow-soft">
+            <Link href={featuredHref} aria-label="AIエージェント徹底比較の記事を読む">
               <img
                 src="/ogp.svg"
-                alt="AI収益化ノートの概要を表したカード型の画像"
-                className="h-auto w-full"
+                alt="AIエージェント徹底比較の記事を紹介するアイキャッチ画像"
+                className="h-auto w-full border-b border-line"
               />
-              <div className="border-t border-line p-5">
-                <p className="text-sm font-bold text-coral">最重要ピックアップ</p>
-              {featured ? (
-                <div className="mt-3">
-                  <Link
-                    href={`/articles/${featured.slug}`}
-                    className="text-2xl font-black leading-snug text-ink transition hover:text-sky"
-                  >
-                    {featured.title}
-                  </Link>
-                  <p className="mt-3 text-sm leading-7 text-muted">
-                    {featured.description}
-                  </p>
-                  <Link
-                    href={`/articles/${featured.slug}`}
-                    className="mt-4 inline-flex rounded-md bg-sky px-4 py-2 text-sm font-bold text-white transition hover:bg-coral"
-                  >
-                    記事を読む
-                  </Link>
-                </div>
-              ) : (
-                <div className="mt-4 rounded-lg border border-line bg-surface p-5 text-muted">
-                  記事を準備中です。
-                </div>
-              )}
-              </div>
+            </Link>
+            <div className="p-5 sm:p-6">
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-sky">
+                Featured Article
+              </p>
+              <h2 className="mt-3 font-serif text-2xl font-bold leading-snug tracking-normal text-ink sm:text-3xl">
+                <Link href={featuredHref} className="transition hover:text-sky">
+                  {featured?.title ?? "AIエージェント徹底比較 2026"}
+                </Link>
+              </h2>
+              <p className="mt-3 text-sm leading-7 text-muted">
+                {featured?.description ??
+                  "初心者向けにAIエージェントの違いを比較します。"}
+              </p>
+              <Link
+                href={featuredHref}
+                className="mt-5 inline-flex rounded-md bg-ink px-4 py-2 text-sm font-bold text-white transition hover:bg-sky"
+              >
+                この記事をそのまま読む
+              </Link>
             </div>
-            <div className="grid gap-3 sm:grid-cols-2">
-              <div className="rounded-lg border border-line bg-surface p-5 shadow-soft">
-                <p className="text-sm font-bold text-sky">読者導線</p>
-                <p className="mt-2 text-sm leading-7 text-muted">
-                  無料記事、無料特典、有料noteの役割を分けて、判断しやすい流れにしています。
-                </p>
-              </div>
-              <AdPlaceholder label="トップページ広告枠" />
-            </div>
-          </aside>
+          </article>
+        </div>
+      </section>
+
+      <section className="border-b border-line bg-surface">
+        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+          <SearchForm id="home-search" placeholder="Claude Code、Codex、Cursorを検索" />
         </div>
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="text-sm font-bold text-coral">カテゴリー別コンテンツ</p>
-            <h2 className="mt-2 text-3xl font-black tracking-normal text-ink sm:text-4xl">
-              読みたいテーマから最短で探す
-            </h2>
-            <p className="mt-4 max-w-3xl text-sm leading-7 text-muted">
-              AIエージェント比較とAI自動化を中心に、実際に読みたいテーマへすぐ進めるよう整理しています。
-            </p>
-          </div>
-          <Link
-            href="/articles"
-            className="inline-flex w-fit rounded-md border border-line bg-surface px-3 py-2 text-sm font-bold text-sky hover:border-sky hover:text-coral"
-          >
-            すべての記事を見る
-          </Link>
+        <div className="mb-8 max-w-3xl">
+          <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-sky">
+            Categories
+          </p>
+          <h2 className="mt-3 font-serif text-3xl font-bold tracking-normal text-ink sm:text-4xl">
+            読みたいテーマから探す
+          </h2>
+          <p className="mt-4 text-sm leading-7 text-muted">
+            AIエージェント比較とAI自動化に絞り、必要な記事へすぐ移動できるように整理しています。
+          </p>
         </div>
         <CategoryArticleSections
           articles={articles}
@@ -151,59 +117,25 @@ export default function HomePage() {
       </section>
 
       <section className="border-y border-line bg-surface-soft">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 py-14 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
-          <div>
-            <p className="text-sm font-bold text-sky">カテゴリ</p>
-            <h2 className="mt-2 text-3xl font-black tracking-normal text-ink sm:text-4xl">
-              サイト全体のテーマ
-            </h2>
-            <p className="mt-4 text-sm leading-7 text-muted">
-              AIエージェント比較とAI自動化に絞って管理しています。
-              迷ったら比較記事から読むと全体像をつかみやすくなります。
-            </p>
-          </div>
-          <div className="grid gap-3 sm:grid-cols-2">
-            {categories.map((category) => (
-              <Link
-                key={category.slug}
-                href={`/categories/${category.slug}`}
-                className="rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-5 shadow-soft transition hover:-translate-y-1 hover:border-sky hover:shadow-glow"
-              >
-                <h3 className="text-lg font-bold text-ink">{category.name}</h3>
-                <span className="mt-2 block text-sm text-muted">
-                  {category.count}本の記事
-                </span>
-              </Link>
-            ))}
-          </div>
+        <div className="mx-auto grid max-w-7xl gap-5 px-4 py-12 sm:px-6 md:grid-cols-2 lg:px-8">
+          {categories.map((category) => (
+            <Link
+              key={category.slug}
+              href={`/categories/${category.slug}`}
+              className="rounded-lg border border-line bg-surface p-6 shadow-soft transition hover:-translate-y-1 hover:border-sky hover:shadow-glow"
+            >
+              <p className="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-sky">
+                Category
+              </p>
+              <h3 className="mt-3 font-serif text-2xl font-bold tracking-normal text-ink">
+                {category.name}
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-muted">
+                {category.count}本の記事を掲載しています。
+              </p>
+            </Link>
+          ))}
         </div>
-      </section>
-
-      <section className="mx-auto grid max-w-7xl gap-5 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:px-8">
-        <Link
-          href="/note"
-          className="rounded-lg border border-line bg-gradient-to-br from-surface to-paper p-6 text-ink shadow-soft transition hover:-translate-y-1 hover:border-coral hover:shadow-glow"
-        >
-          <p className="text-sm font-bold text-coral">有料note案内</p>
-          <h3 className="mt-3 text-2xl font-black tracking-normal">
-            記事では概要、noteでは設計シートと実践手順へ。
-          </h3>
-          <p className="mt-3 text-sm leading-7 text-muted">
-            読者が納得して購入を判断できるよう、無料記事と有料部分の役割を分けています。
-          </p>
-        </Link>
-        <Link
-          href="/free-gift"
-          className="rounded-lg border border-line bg-gradient-to-br from-surface to-paper p-6 shadow-soft transition hover:-translate-y-1 hover:border-amber hover:shadow-glow"
-        >
-          <p className="text-sm font-bold text-amber">無料特典</p>
-          <h3 className="mt-3 text-2xl font-black tracking-normal text-ink">
-            AIツール選定チェックリストを配布するページ。
-          </h3>
-          <p className="mt-3 text-sm leading-7 text-muted">
-            メール配信や外部ツール連携は未実装のため、公開前に配布方法を選べます。
-          </p>
-        </Link>
       </section>
     </>
   );
