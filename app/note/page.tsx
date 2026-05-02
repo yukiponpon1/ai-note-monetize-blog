@@ -5,18 +5,18 @@ import { AdPlaceholder } from "@/components/AdPlaceholder";
 export const metadata: Metadata = {
   title: "有料noteの案内",
   description:
-    "AI記事設計、比較記事、無料特典、販売導線をつなげる有料noteの案内ページです。",
+    "AIエージェント比較とAI自動化の学習を深掘りする有料noteの案内ページです。",
   openGraph: {
     title: "有料noteの案内",
     description:
-      "AI記事設計、比較記事、無料特典、販売導線をつなげる有料noteの案内ページです。",
+      "AIエージェント比較とAI自動化の学習を深掘りする有料noteの案内ページです。",
   },
 };
 
 const items = [
   "AIツール比較記事の構成テンプレート",
   "無料記事から有料noteへつなげるCTA例",
-  "AdSense審査前に整える固定ページの確認リスト",
+  "AIツール選定時に確認する料金と安全性のチェックリスト",
   "誇大表現を避けるための言い換え集",
 ];
 

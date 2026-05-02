@@ -7,7 +7,7 @@ import { getAllArticles, getCategories } from "@/lib/articles";
 const trustPoints = [
   "収益を保証しない現実的な副業設計",
   "仕様変更を前提にしたAIツール比較",
-  "AdSense審査を見据えた固定ページ整備",
+  "AIツールの実践比較を中心に整理",
 ];
 
 export default function HomePage() {
@@ -133,7 +133,7 @@ export default function HomePage() {
               読みたいテーマから最短で探す
             </h2>
             <p className="mt-4 max-w-3xl text-sm leading-7 text-muted">
-              AIエージェント比較、AI自動化、note販売導線、AdSense準備をセクションごとに整理しています。
+              AIエージェント比較とAI自動化を中心に、実際に読みたいテーマへすぐ進めるよう整理しています。
             </p>
           </div>
           <Link
@@ -158,7 +158,7 @@ export default function HomePage() {
               サイト全体のテーマ
             </h2>
             <p className="mt-4 text-sm leading-7 text-muted">
-              ツール比較、AI自動化、note販売、AdSense準備を分けて管理しています。
+              AIエージェント比較とAI自動化に絞って管理しています。
               迷ったら比較記事から読むと全体像をつかみやすくなります。
             </p>
           </div>
@@ -184,7 +184,7 @@ export default function HomePage() {
           href="/note"
           className="rounded-lg border border-line bg-gradient-to-br from-surface to-paper p-6 text-ink shadow-soft transition hover:-translate-y-1 hover:border-coral hover:shadow-glow"
         >
-          <p className="text-sm font-bold text-coral">有料note導線</p>
+          <p className="text-sm font-bold text-coral">有料note案内</p>
           <h3 className="mt-3 text-2xl font-black tracking-normal">
             記事では概要、noteでは設計シートと実践手順へ。
           </h3>
@@ -198,7 +198,7 @@ export default function HomePage() {
         >
           <p className="text-sm font-bold text-amber">無料特典</p>
           <h3 className="mt-3 text-2xl font-black tracking-normal text-ink">
-            AI記事設計チェックリストを配布するページ。
+            AIツール選定チェックリストを配布するページ。
           </h3>
           <p className="mt-3 text-sm leading-7 text-muted">
             メール配信や外部ツール連携は未実装のため、公開前に配布方法を選べます。

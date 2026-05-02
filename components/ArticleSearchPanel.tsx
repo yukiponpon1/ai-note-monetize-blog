@@ -83,7 +83,7 @@ export const ArticleSearchPanel = ({
               aria-label="記事タイトル、説明、タグから検索"
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder="例: Claude Code、AdSense、無料特典"
+              placeholder="例: Claude Code、Cursor、AI自動化"
               className="w-full rounded-lg border border-line bg-paper px-12 py-3 text-sm text-ink outline-none transition placeholder:text-muted focus:border-sky focus:shadow-glow"
             />
           </label>

@@ -7,7 +7,7 @@ type SearchFormProps = {
 export const SearchForm = ({
   id,
   compact = false,
-  placeholder = "AI自動化、Claude Code、note導線を検索",
+  placeholder = "AI自動化、Claude Code、Cursorを検索",
 }: SearchFormProps) => (
   <form
     action="/articles"

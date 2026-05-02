@@ -7,11 +7,11 @@ import { getAllArticles, getCategories } from "@/lib/articles";
 export const metadata: Metadata = {
   title: "記事一覧",
   description:
-    "AI自動化、AIコーディングエージェント比較、note販売導線、AdSense準備の記事一覧です。",
+    "AI自動化とAIコーディングエージェント比較の記事一覧です。",
   openGraph: {
     title: "記事一覧",
     description:
-      "AI自動化、AIコーディングエージェント比較、note販売導線、AdSense準備の記事一覧です。",
+      "AI自動化とAIコーディングエージェント比較の記事一覧です。",
   },
 };
 
