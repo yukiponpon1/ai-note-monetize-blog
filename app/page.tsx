@@ -12,8 +12,11 @@ const trustPoints = [
 
 export default function HomePage() {
   const articles = getAllArticles();
-  const featured = articles[0];
+  const featured =
+    articles.find((article) => article.slug === "ai-agent-hikaku-2026") ??
+    articles[0];
   const categories = getCategories();
+  const primaryArticleHref = featured ? `/articles/${featured.slug}` : "/articles";
   const heroStats = [
     { label: "公開記事", value: `${articles.length}本` },
     { label: "カテゴリ", value: `${categories.length}種類` },
@@ -61,10 +64,10 @@ export default function HomePage() {
             </dl>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
-                href="/articles"
+                href={primaryArticleHref}
                 className="inline-flex items-center justify-center rounded-md bg-sky px-5 py-3 text-sm font-bold text-white shadow-glow transition hover:bg-coral"
               >
-                最新記事を読む
+                注目記事を読む
               </Link>
               <Link
                 href="/free-gift"
@@ -83,7 +86,7 @@ export default function HomePage() {
                 className="h-auto w-full"
               />
               <div className="border-t border-line p-5">
-                <p className="text-sm font-bold text-coral">ピックアップ</p>
+                <p className="text-sm font-bold text-coral">最重要ピックアップ</p>
               {featured ? (
                 <div className="mt-3">
                   <Link
