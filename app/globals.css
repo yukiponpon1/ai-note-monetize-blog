@@ -127,8 +127,12 @@ input {
   padding: 0;
 }
 
-.article-body table {
+.article-body .table-scroll {
   margin-top: 1.5rem;
+  overflow-x: auto;
+}
+
+.article-body table {
   width: 100%;
   border-collapse: collapse;
   overflow: hidden;

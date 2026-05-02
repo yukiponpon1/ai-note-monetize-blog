@@ -10,16 +10,15 @@ const trustPoints = [
   "AdSense審査を見据えた固定ページ整備",
 ];
 
-const heroStats = [
-  { label: "公開記事", value: "11本" },
-  { label: "カテゴリ", value: "5種類" },
-  { label: "広告コード", value: "未設置" },
-];
-
 export default function HomePage() {
   const articles = getAllArticles();
   const featured = articles[0];
   const categories = getCategories();
+  const heroStats = [
+    { label: "公開記事", value: `${articles.length}本` },
+    { label: "カテゴリ", value: `${categories.length}種類` },
+    { label: "広告コード", value: "未設置" },
+  ];
 
   return (
     <>

@@ -38,10 +38,22 @@ const parseInline = (value: string) => {
 
 const shouldStopParagraph = (line: string) =>
   /^#{2,4}\s+/.test(line) ||
+  /^\|.+\|$/.test(line) ||
   /^[-*]\s+/.test(line) ||
   /^\d+\.\s+/.test(line) ||
   /^>\s?/.test(line) ||
   /^```/.test(line);
+
+const isTableSeparator = (line: string) =>
+  /^\|\s*:?-{3,}:?\s*(\|\s*:?-{3,}:?\s*)+\|$/.test(line);
+
+const parseTableRow = (line: string) =>
+  line
+    .trim()
+    .replace(/^\|/, "")
+    .replace(/\|$/, "")
+    .split("|")
+    .map((cell) => cell.trim());
 
 export const markdownToHtml = (markdown: string) => {
   const lines = markdown.replace(/\r\n/g, "\n").split("\n");
@@ -73,6 +85,33 @@ export const markdownToHtml = (markdown: string) => {
       const level = Math.min(headingMatch[1].length, 4);
       html.push(`<h${level}>${parseInline(headingMatch[2])}</h${level}>`);
       index += 1;
+      continue;
+    }
+
+    if (
+      /^\|.+\|$/.test(line) &&
+      index + 1 < lines.length &&
+      isTableSeparator(lines[index + 1])
+    ) {
+      const headers = parseTableRow(line);
+      const rows: string[][] = [];
+      index += 2;
+      while (index < lines.length && /^\|.+\|$/.test(lines[index])) {
+        rows.push(parseTableRow(lines[index]));
+        index += 1;
+      }
+      const headerHtml = headers
+        .map((header) => `<th>${parseInline(header)}</th>`)
+        .join("");
+      const bodyHtml = rows
+        .map(
+          (row) =>
+            `<tr>${row.map((cell) => `<td>${parseInline(cell)}</td>`).join("")}</tr>`,
+        )
+        .join("");
+      html.push(
+        `<div class="table-scroll"><table><thead><tr>${headerHtml}</tr></thead><tbody>${bodyHtml}</tbody></table></div>`,
+      );
       continue;
     }
 
