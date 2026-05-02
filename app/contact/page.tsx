@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "お問い合わせ",
   description:
-    "AI収益化ノートへのお問い合わせページです。静的サイトのため送信処理は未実装です。",
+    "初心者に優しいAI図解ラボへのお問い合わせページです。静的サイトのため送信処理は未実装です。",
   openGraph: {
     title: "お問い合わせ",
     description:
-      "AI収益化ノートへのお問い合わせページです。静的サイトのため送信処理は未実装です。",
+      "初心者に優しいAI図解ラボへのお問い合わせページです。静的サイトのため送信処理は未実装です。",
   },
 };
 

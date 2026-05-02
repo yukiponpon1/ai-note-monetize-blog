@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         url: "/ogp.svg",
         width: 1200,
         height: 630,
-        alt: "AI収益化ノートのOGP画像",
+        alt: "初心者に優しいAI図解ラボのOGP画像",
       },
     ],
   },

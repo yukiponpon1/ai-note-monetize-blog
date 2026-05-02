@@ -4,11 +4,11 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "プロフィール",
   description:
-    "AI収益化ノートの運営方針と、AIツール検証ブログとしての考え方を紹介します。",
+    "初心者に優しいAI図解ラボの運営方針と、AIツール検証ブログとしての考え方を紹介します。",
   openGraph: {
     title: "プロフィール",
     description:
-      "AI収益化ノートの運営方針と、AIツール検証ブログとしての考え方を紹介します。",
+      "初心者に優しいAI図解ラボの運営方針と、AIツール検証ブログとしての考え方を紹介します。",
   },
 };
 
@@ -23,7 +23,7 @@ export default function ProfilePage() {
       </h1>
       <div className="mt-8 space-y-5 rounded-lg border border-line bg-surface p-6 text-sm leading-8 text-muted shadow-soft">
         <p>
-          AI収益化ノートは、AI自動化とAIコーディングエージェントの使い方を、
+          初心者に優しいAI図解ラボは、AI自動化とAIコーディングエージェントの使い方を、
           日本語で実践的に整理するブログです。ツールの優劣を断定するよりも、
           目的、作業環境、リスクに合わせて選ぶための観点を重視しています。
         </p>

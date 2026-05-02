@@ -1,7 +1,7 @@
 export const siteConfig = {
-  name: "AI収益化ノート",
+  name: "初心者に優しいAI図解ラボ",
   description:
-    "AI自動化とAIコーディングエージェントを、無理のない副業導線として学ぶ日本語ブログです。",
+    "AI自動化とAIコーディングエージェントを、初心者にも分かりやすい図解と比較で学べる日本語ブログです。",
   url:
     process.env.NEXT_PUBLIC_SITE_URL ??
     "https://ai-note-monetize-blog.vercel.app",

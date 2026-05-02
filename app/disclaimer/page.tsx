@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "免責事項",
   description:
-    "AI収益化ノートの免責事項です。AIツールの仕様変更、収益表現、外部リンクについて記載しています。",
+    "初心者に優しいAI図解ラボの免責事項です。AIツールの仕様変更、収益表現、外部リンクについて記載しています。",
   openGraph: {
     title: "免責事項",
     description:
-      "AI収益化ノートの免責事項です。AIツールの仕様変更、収益表現、外部リンクについて記載しています。",
+      "初心者に優しいAI図解ラボの免責事項です。AIツールの仕様変更、収益表現、外部リンクについて記載しています。",
   },
 };
 
