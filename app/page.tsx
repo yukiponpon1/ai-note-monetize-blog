@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { AdPlaceholder } from "@/components/AdPlaceholder";
-import { ArticleCard } from "@/components/ArticleCard";
 import { CategoryArticleSections } from "@/components/CategoryArticleSections";
 import { SearchForm } from "@/components/SearchForm";
 import { getAllArticles, getCategories } from "@/lib/articles";
@@ -31,7 +30,7 @@ export default function HomePage() {
               {trustPoints.map((point) => (
                 <span
                   key={point}
-                  className="rounded-md border border-line bg-surface px-3 py-1.5 text-xs font-bold text-muted"
+                  className="rounded-md border border-line bg-surface px-3 py-1.5 text-xs font-bold text-muted shadow-soft"
                 >
                   {point}
                 </span>
@@ -41,7 +40,7 @@ export default function HomePage() {
               AI自動化と発信設計の実践ガイド
             </p>
             <h1 className="mt-4 max-w-4xl text-4xl font-black leading-tight tracking-normal text-ink sm:text-6xl">
-              AI副業の始め方を、検索しやすい知識ベースとして整理する。
+              読む人にも、作る人にもやさしいAI副業ブログ。
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-8 text-muted">
               Claude Code、Codex、Cursor、GitHub Copilot、Google Antigravity
@@ -54,7 +53,7 @@ export default function HomePage() {
               {heroStats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-lg border border-line bg-surface/80 px-4 py-3"
+                  className="rounded-lg border border-line bg-surface px-4 py-3 shadow-soft"
                 >
                   <dt className="text-xs font-semibold text-muted">{stat.label}</dt>
                   <dd className="mt-1 text-xl font-black text-ink">{stat.value}</dd>
@@ -78,17 +77,38 @@ export default function HomePage() {
           </div>
 
           <aside className="grid gap-4" aria-label="注目記事とサイト概要">
-            <div className="rounded-lg border border-line bg-gradient-to-b from-surface to-paper p-5 shadow-soft">
-              <p className="text-sm font-bold text-coral">最初に読む記事</p>
+            <div className="overflow-hidden rounded-lg border border-line bg-surface shadow-soft">
+              <img
+                src="/ogp.svg"
+                alt="AI収益化ノートの概要を表したカード型の画像"
+                className="h-auto w-full"
+              />
+              <div className="border-t border-line p-5">
+                <p className="text-sm font-bold text-coral">ピックアップ</p>
               {featured ? (
-                <div className="mt-4">
-                  <ArticleCard article={featured} />
+                <div className="mt-3">
+                  <Link
+                    href={`/articles/${featured.slug}`}
+                    className="text-2xl font-black leading-snug text-ink transition hover:text-sky"
+                  >
+                    {featured.title}
+                  </Link>
+                  <p className="mt-3 text-sm leading-7 text-muted">
+                    {featured.description}
+                  </p>
+                  <Link
+                    href={`/articles/${featured.slug}`}
+                    className="mt-4 inline-flex rounded-md bg-sky px-4 py-2 text-sm font-bold text-white transition hover:bg-coral"
+                  >
+                    記事を読む
+                  </Link>
                 </div>
               ) : (
                 <div className="mt-4 rounded-lg border border-line bg-surface p-5 text-muted">
                   記事を準備中です。
                 </div>
               )}
+              </div>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
               <div className="rounded-lg border border-line bg-surface p-5 shadow-soft">

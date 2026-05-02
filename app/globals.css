@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  color: #ffffff;
-  background: #030303;
+  color: #24313a;
+  background: #f6fbfd;
 }
 
 html {
@@ -14,8 +14,8 @@ html {
 body {
   min-height: 100vh;
   background:
-    linear-gradient(135deg, rgba(239, 68, 68, 0.12) 0%, transparent 28%),
-    linear-gradient(180deg, #030303 0%, #090909 46%, #030303 100%);
+    linear-gradient(135deg, rgba(20, 169, 199, 0.12) 0%, transparent 28%),
+    linear-gradient(180deg, #f6fbfd 0%, #ffffff 48%, #edf8fb 100%);
 }
 
 a,
@@ -25,27 +25,27 @@ input {
 }
 
 :focus-visible {
-  outline: 2px solid #ef4444;
+  outline: 2px solid #14a9c7;
   outline-offset: 3px;
 }
 
 ::selection {
-  background: rgba(239, 68, 68, 0.48);
+  background: rgba(247, 201, 72, 0.55);
 }
 
 .article-body {
-  color: rgba(255, 255, 255, 0.9);
+  color: #34444e;
 }
 
 .article-body h2 {
   margin-top: 2.5rem;
-  border-top: 1px solid rgba(64, 64, 64, 0.95);
+  border-top: 1px solid #e3eef3;
   padding-top: 2rem;
   font-size: 1.55rem;
   line-height: 1.35;
   font-weight: 800;
   letter-spacing: 0;
-  color: #ffffff;
+  color: #24313a;
 }
 
 .article-body h3 {
@@ -54,7 +54,7 @@ input {
   line-height: 1.45;
   font-weight: 800;
   letter-spacing: 0;
-  color: #ffffff;
+  color: #24313a;
 }
 
 .article-body h4 {
@@ -88,21 +88,21 @@ input {
 }
 
 .article-body a {
-  color: #f87171;
+  color: #0d8da8;
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 0.18em;
 }
 
 .article-body strong {
-  color: #ffffff;
+  color: #24313a;
   font-weight: 800;
 }
 
 .article-body blockquote {
   margin-top: 1.5rem;
-  border-left: 4px solid #ef4444;
-  background: rgba(16, 16, 16, 0.92);
+  border-left: 4px solid #14a9c7;
+  background: #eefafe;
   padding: 1rem 1.2rem;
 }
 
@@ -110,14 +110,14 @@ input {
   margin-top: 1.5rem;
   overflow-x: auto;
   border-radius: 0.5rem;
-  background: #000000;
+  background: #24313a;
   padding: 1rem;
   color: #ffffff;
 }
 
 .article-body code {
   border-radius: 0.35rem;
-  background: rgba(239, 68, 68, 0.18);
+  background: rgba(20, 169, 199, 0.12);
   padding: 0.1rem 0.3rem;
   font-size: 0.9em;
 }
@@ -138,17 +138,17 @@ input {
 
 .article-body th,
 .article-body td {
-  border: 1px solid rgba(64, 64, 64, 0.95);
+  border: 1px solid #e3eef3;
   padding: 0.85rem;
   text-align: left;
   vertical-align: top;
 }
 
 .article-body th {
-  background: rgba(239, 68, 68, 0.14);
-  color: #ffffff;
+  background: #eaf8fb;
+  color: #24313a;
 }
 
 .article-body td {
-  background: rgba(10, 10, 10, 0.78);
+  background: #ffffff;
 }
