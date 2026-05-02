@@ -17,9 +17,11 @@ type PageProps = {
 };
 
 export const generateStaticParams = () =>
-  getAllArticles().map((article) => ({
-    slug: article.slug,
-  }));
+  getAllArticles()
+    .filter((article) => article.slug !== "ai-agent-hikaku-2026")
+    .map((article) => ({
+      slug: article.slug,
+    }));
 
 export const generateMetadata = async ({
   params,

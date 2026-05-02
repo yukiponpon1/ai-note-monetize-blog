@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIエージェント徹底比較 2026｜Claude Code・Codex・Antigravity・Cursor・Copilot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f7f5f0;
+  --surface: #ffffff;
+  --surface2: #f0ede6;
+  --text: #1a1714;
+  --text2: #5a5650;
+  --text3: #8a857e;
+  --accent: #c94a2a;
+  --accent2: #e8733a;
+  --green: #2a7a4a;
+  --green-bg: #edf7f2;
+  --amber: #b06010;
+  --amber-bg: #fff8ec;
+  --red: #c0302a;
+  --red-bg: #fef2f1;
+  --blue: #1a5a9a;
+  --blue-bg: #eef4fc;
+  --border: #ddd9d0;
+  --radius: 10px;
+  --serif: 'Noto Serif JP', serif;
+  --sans: 'Noto Sans JP', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.85;
+  font-size: 15px;
+}
+
+/* ── ヘッダー ── */
+.site-header {
+  background: var(--text);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.site-header .logo {
+  font-family: var(--mono);
+  color: var(--accent2);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .04em;
+}
+.site-header .badge {
+  background: var(--accent);
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+
+/* ── ヒーロー ── */
+.hero {
+  background: var(--text);
+  color: #fff;
+  padding: 64px 24px 56px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 39px,
+    rgba(255,255,255,.03) 39px,
+    rgba(255,255,255,.03) 40px
+  );
+}
+.hero .tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent2);
+  letter-spacing: .1em;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(22px, 4vw, 34px);
+  font-weight: 700;
+  line-height: 1.45;
+  max-width: 680px;
+  margin: 0 auto 20px;
+  position: relative;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--accent2);
+}
+.hero .sub {
+  color: rgba(255,255,255,.55);
+  font-size: 13px;
+  position: relative;
+}
+.notice-bar {
+  background: #2a2520;
+  border-top: 1px solid #3a3530;
+  padding: 10px 24px;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255,255,255,.5);
+}
+.notice-bar strong { color: var(--accent2); }
+
+/* ── レイアウト ── */
+.wrap {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── セクション ── */
+section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+section:last-child { border-bottom: none; }
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.section-label .num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: .08em;
+}
+.section-label h2 {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+p { margin-bottom: 14px; color: var(--text); }
+p:last-child { margin-bottom: 0; }
+
+/* ── 結論ボックス ── */
+.conclusion-box {
+  background: var(--text);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 28px 28px 24px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.conclusion-box::after {
+  content: '結論';
+  position: absolute;
+  right: -10px;
+  top: -10px;
+  font-family: var(--mono);
+  font-size: 72px;
+  font-weight: 700;
+  color: rgba(255,255,255,.05);
+  line-height: 1;
+}
+.conclusion-box p {
+  color: rgba(255,255,255,.8);
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+.conclusion-box .headline {
+  font-family: var(--serif);
+  font-size: 17px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+.conclusion-box .headline em { color: var(--accent2); font-style: normal; }
+
+/* ── アクションバー ── */
+.action-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--green-bg);
+  border: 1px solid #b8e0cc;
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-top: 16px;
+}
+.action-bar .dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; flex-shrink: 0; }
+.action-bar p { margin: 0; font-size: 13px; color: var(--green); font-weight: 500; }
+
+/* ── AIチャット vs エージェント比較 ── */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: 24px 0;
+}
+.compare-col { background: var(--surface); }
+.compare-col.agent { background: var(--surface2); }
+.compare-head {
+  padding: 14px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  border-bottom: 1px solid var(--border);
+}
+.compare-col .compare-head { background: #eee9e0; color: var(--text2); }
+.compare-col.agent .compare-head { background: var(--text); color: #fff; }
+.compare-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.compare-item:last-child { border-bottom: none; }
+.check { color: var(--green); font-size: 15px; font-weight: 700; }
+.cross { color: var(--text3); font-size: 15px; }
+.compare-item .label { color: var(--text2); font-size: 12px; }
+
+/* ── 立ち位置マップ ── */
+.map-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin: 24px 0;
+}
+.map-title {
+  font-size: 12px;
+  font-family: var(--mono);
+  color: var(--text3);
+  text-align: center;
+  margin-bottom: 16px;
+  letter-spacing: .06em;
+}
+.position-map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #f7f5f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.axis-x {
+  position: absolute;
+  left: 40px; right: 40px;
+  top: 50%;
+  height: 1px;
+  background: var(--border);
+}
+.axis-y {
+  position: absolute;
+  top: 20px; bottom: 20px;
+  left: 50%;
+  width: 1px;
+  background: var(--border);
+}
+.axis-label {
+  position: absolute;
+  font-size: 10px;
+  color: var(--text3);
+  font-family: var(--mono);
+}
+.tool-dot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  cursor: default;
+}
+.tool-dot .bubble {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  padding: 5px 12px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  border: 1.5px solid;
+}
+.tool-dot .price {
+  font-size: 9px;
+  margin-top: 3px;
+  color: var(--text3);
+  font-family: var(--mono);
+}
+.td-copilot .bubble { background: #edf7f2; color: #1a6640; border-color: #8ecfaa; }
+.td-cursor .bubble  { background: #eef4fc; color: #1a4d8a; border-color: #8ab8e8; }
+.td-antigravity .bubble { background: #fff8ec; color: #8a5010; border-color: #f0c070; }
+.td-codex .bubble  { background: #f5eefe; color: #5a30b0; border-color: #c0a0e0; }
+.td-claudecode .bubble { background: #fef2f1; color: #a02020; border-color: #e8a090; }
+
+.zone-beginner {
+  position: absolute;
+  left: 2%; top: 52%;
+  width: 46%; height: 45%;
+  background: rgba(42,122,74,.05);
+  border: 1px dashed rgba(42,122,74,.2);
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-end;
+  padding: 6px 10px;
+}
+.zone-beginner span { font-size: 9px; color: var(--green); font-family: var(--mono); opacity: .8; }
+.zone-pro {
+  position: absolute;
+  right: 2%; top: 4%;
+  width: 46%; height: 50%;
+  background: rgba(201,74,42,.04);
+  border: 1px dashed rgba(201,74,42,.2);
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-start;
+  padding: 6px 10px;
+}
+.zone-pro span { font-size: 9px; color: var(--accent); font-family: var(--mono); opacity: .8; }
+
+/* ── 比較表 ── */
+.tool-table-wrap {
+  overflow-x: auto;
+  margin: 24px 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.tool-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+  font-size: 13px;
+}
+.tool-table th {
+  background: var(--text);
+  color: rgba(255,255,255,.85);
+  padding: 12px 14px;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: .05em;
+  text-align: left;
+  white-space: nowrap;
+}
+.tool-table th:first-child { border-radius: 0; }
+.tool-table td {
+  padding: 13px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.5;
+}
+.tool-table tr:last-child td { border-bottom: none; }
+.tool-table tr:nth-child(even) td { background: var(--surface2); }
+.tool-table tr:hover td { background: #eae6de; }
+.tool-name { font-weight: 700; font-size: 13px; }
+.stars { color: #f0a020; font-size: 13px; letter-spacing: 1px; }
+.tag-pill {
+  display: inline-block;
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 10px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+.tag-free { background: var(--green-bg); color: var(--green); }
+.tag-warn { background: var(--amber-bg); color: var(--amber); }
+.tag-danger { background: var(--red-bg); color: var(--red); }
+
+/* ── 料金バーチャート ── */
+.price-chart { margin: 24px 0; }
+.price-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.price-name {
+  width: 120px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+  flex-shrink: 0;
+  text-align: right;
+}
+.price-bars { flex: 1; display: flex; align-items: center; gap: 3px; height: 32px; }
+.bar {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+  font-family: var(--mono);
+}
+.bar-free { background: var(--surface2); border: 1px solid var(--border); color: var(--text3); font-size: 9px; }
+.bar-g1 { background: #2a7a4a; color: #edf7f2; }
+.bar-g2 { background: #1a5a34; color: #c8f0d8; }
+.bar-t1 { background: #1a6680; color: #d0f0ff; }
+.bar-t2 { background: #104a60; color: #a0d8ee; }
+.bar-p1 { background: #5a30b0; color: #efe8fc; }
+.bar-p2 { background: #3a1880; color: #d0c0f0; }
+.bar-r1 { background: #c04828; color: #fdeee8; }
+.bar-r2 { background: #e07040; color: #fff0e8; }
+.bar-r3 { background: #f0a070; color: #4a1810; }
+.bar-a1 { background: #8a6000; color: #fff8e0; border: 1px dashed #c8a040; background: var(--amber-bg); color: var(--amber); }
+.price-scale {
+  display: flex;
+  margin-left: 132px;
+  font-size: 10px;
+  color: var(--text3);
+  font-family: var(--mono);
+  margin-top: 4px;
+  padding: 0 2px;
+}
+.price-scale span { flex: 1; }
+.price-scale span:last-child { text-align: right; }
+.price-note {
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: var(--surface2);
+  border-radius: 6px;
+  border-left: 3px solid var(--amber);
+}
+
+/* ── 目的別カード ── */
+.purpose-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+.purpose-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.purpose-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.purpose-card.beginner::before { background: var(--green); }
+.purpose-card.fukugyou::before { background: var(--amber); }
+.purpose-card.pro::before { background: var(--blue); }
+.purpose-card .p-tag {
+  font-size: 10px;
+  font-family: var(--mono);
+  font-weight: 600;
+  letter-spacing: .08em;
+  margin-bottom: 8px;
+}
+.purpose-card.beginner .p-tag { color: var(--green); }
+.purpose-card.fukugyou .p-tag { color: var(--amber); }
+.purpose-card.pro .p-tag { color: var(--blue); }
+.purpose-card h3 { font-family: var(--serif); font-size: 16px; margin-bottom: 8px; }
+.purpose-card .tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.purpose-card .t-chip {
+  font-size: 11px;
+  padding: 3px 9px;
+  border-radius: 12px;
+  font-weight: 700;
+}
+.beginner .t-chip { background: var(--green-bg); color: var(--green); }
+.fukugyou .t-chip { background: var(--amber-bg); color: var(--amber); }
+.pro .t-chip { background: var(--blue-bg); color: var(--blue); }
+.purpose-card p { font-size: 12px; color: var(--text2); margin: 0; line-height: 1.65; }
+
+/* ── ツール個別カード ── */
+.tool-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.tool-card-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface2);
+}
+.tool-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+  font-family: var(--mono);
+}
+.ic-cop { background: #edf7f2; color: var(--green); }
+.ic-cur { background: #eef4fc; color: var(--blue); }
+.ic-ant { background: #fff8ec; color: var(--amber); }
+.ic-cod { background: #f5eefe; color: #5a30b0; }
+.ic-cla { background: #fef2f1; color: var(--red); }
+.tool-card-head h3 { font-family: var(--serif); font-size: 17px; font-weight: 700; }
+.tool-card-head .tc-sub { font-size: 11px; color: var(--text3); margin-top: 2px; }
+.tool-card-body { padding: 18px 20px; }
+.tool-card-body p { font-size: 13px; margin-bottom: 12px; color: var(--text2); }
+.meta-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 6px 16px;
+  font-size: 12px;
+  margin-top: 12px;
+}
+.meta-key { color: var(--text3); font-family: var(--mono); font-size: 11px; white-space: nowrap; }
+.meta-val { color: var(--text2); line-height: 1.5; }
+.meta-val strong { color: var(--green); }
+.alert-inline {
+  display: flex;
+  gap: 8px;
+  background: var(--red-bg);
+  border: 1px solid #f0c0b8;
+  border-radius: 6px;
+  padding: 10px 12px;
+  margin-top: 12px;
+  font-size: 12px;
+  color: var(--red);
+  line-height: 1.5;
+}
+.alert-inline .icon { flex-shrink: 0; margin-top: 1px; }
+
+/* ── 罠セクション ── */
+.trap-list { margin: 24px 0; display: flex; flex-direction: column; gap: 14px; }
+.trap-item {
+  display: flex;
+  gap: 16px;
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  border: 1px solid;
+}
+.trap-item.danger { background: var(--red-bg); border-color: #f0c0b8; }
+.trap-item.warn   { background: var(--amber-bg); border-color: #f0d090; }
+.trap-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+.trap-body h4 { font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+.trap-item.danger h4 { color: var(--red); }
+.trap-item.warn h4   { color: var(--amber); }
+.trap-body p { font-size: 12px; color: var(--text2); margin: 0; line-height: 1.65; }
+.trap-body code {
+  font-family: var(--mono);
+  font-size: 11px;
+  background: rgba(0,0,0,.07);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+/* ── 副業フロー ── */
+.flow-steps {
+  display: flex;
+  gap: 0;
+  margin: 24px 0;
+  position: relative;
+}
+.flow-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+.flow-step::after {
+  content: '›';
+  position: absolute;
+  right: -8px;
+  top: 20px;
+  font-size: 20px;
+  color: var(--text3);
+  z-index: 1;
+}
+.flow-step:last-child::after { display: none; }
+.step-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin: 0 6px;
+  padding: 14px 8px 10px;
+  position: relative;
+}
+.step-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 10%; right: 10%;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+}
+.flow-step:nth-child(-n+3) .step-box::before { background: var(--green); }
+.flow-step:nth-child(4) .step-box::before { background: var(--amber); }
+.flow-step:nth-child(5) .step-box::before { background: var(--accent); }
+.step-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text3);
+  margin-bottom: 4px;
+}
+.step-title {
+  font-weight: 700;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.step-desc {
+  font-size: 10px;
+  color: var(--text2);
+  line-height: 1.5;
+}
+.step-tag {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 8px;
+  display: inline-block;
+  margin-top: 6px;
+}
+.tag-ok { background: var(--green-bg); color: var(--green); }
+.tag-caut { background: var(--amber-bg); color: var(--amber); }
+
+@media (max-width: 600px) {
+  .flow-steps { flex-direction: column; gap: 8px; }
+  .flow-step::after { content: '↓'; right: auto; top: auto; bottom: -14px; left: 50%; transform: translateX(-50%); }
+  .step-box { margin: 0; }
+}
+
+/* ── FAQ ── */
+.faq-list { margin: 24px 0; }
+.faq-item {
+  border-bottom: 1px solid var(--border);
+  padding: 18px 0;
+}
+.faq-item:last-child { border-bottom: none; }
+.faq-q {
+  display: flex;
+  gap: 12px;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+.faq-q .q-mark {
+  width: 22px; height: 22px;
+  background: var(--text);
+  color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px;
+  font-family: var(--mono);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.faq-a {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.75;
+  padding-left: 34px;
+}
+
+/* ── まとめ表 ── */
+.summary-table-wrap {
+  overflow-x: auto;
+  margin: 24px 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 480px;
+  font-size: 13px;
+}
+.summary-table th {
+  background: var(--text);
+  color: rgba(255,255,255,.8);
+  padding: 11px 14px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .05em;
+  text-align: left;
+}
+.summary-table td {
+  padding: 13px 14px;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.5;
+  vertical-align: middle;
+}
+.summary-table tr:last-child td { border-bottom: none; }
+.summary-table tr:nth-child(even) td { background: var(--surface2); }
+.rec-chip {
+  display: inline-block;
+  background: var(--green-bg);
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 10px;
+}
+
+/* ── 今日やることボックス ── */
+.today-box {
+  background: var(--text);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 28px;
+  margin: 32px 0;
+}
+.today-box h3 {
+  font-family: var(--serif);
+  font-size: 17px;
+  margin-bottom: 20px;
+  color: var(--accent2);
+}
+.today-steps { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.today-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13px;
+  color: rgba(255,255,255,.8);
+  line-height: 1.65;
+}
+.today-steps .n {
+  width: 22px; height: 22px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── フッター ── */
+footer {
+  background: var(--text);
+  color: rgba(255,255,255,.4);
+  text-align: center;
+  padding: 32px 24px;
+  font-size: 11px;
+  line-height: 2;
+}
+footer a { color: rgba(255,255,255,.6); text-decoration: none; }
+footer a:hover { color: var(--accent2); }
+
+/* ── アニメーション ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero h1, .hero .sub, .hero .tag { animation: fadeUp .5s ease both; }
+.hero h1 { animation-delay: .1s; }
+.hero .sub { animation-delay: .2s; }
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<header class="site-header">
+  <span class="logo">AI-TOOLS.JP</span>
+  <span class="badge">2026年5月版</span>
+</header>
+
+<!-- ヒーロー -->
+<div class="hero">
+  <div class="tag">AI Coding Agent Comparison</div>
+  <h1>AIエージェント徹底比較<br><em>Claude Code・Codex・Antigravity</em><br>Cursor・Copilotの選び方</h1>
+  <p class="sub">初心者から本格開発まで。目的・予算・スキルで選べるガイド。</p>
+</div>
+<div class="notice-bar">
+  <strong>⚠ 注意：</strong>料金・仕様は2026年5月時点の情報です。最新情報は各公式サイトをご確認ください。
+</div>
+
+<!-- 本文 -->
+<div class="wrap">
+
+  <!-- 1. 結論 -->
+  <section>
+    <div class="section-label">
+      <span class="num">01</span>
+      <h2>結論：初心者におすすめのAIエージェントはどれ？</h2>
+    </div>
+    <div class="conclusion-box">
+      <p class="headline">迷ったら、まず <em>GitHub Copilot（月額約1,500円）</em> か <em>Cursor（月額約3,000円）</em> から始めましょう。</p>
+      <p>どちらもGUIで操作でき、コードが突然消えたり暴走したりするリスクが低く、初心者が安全に試せます。Claude CodeやOpenAI Codexは高機能ですが、ターミナル操作の知識が必要です。Google Antigravityは無料ですが、まだパブリックプレビュー段階です。</p>
+    </div>
+    <div class="action-bar">
+      <div class="dot"></div>
+      <p>今日のアクション：まずCopilotの無料プランか、Cursorの無料トライアルを試してみましょう。</p>
+    </div>
+  </section>
+
+  <!-- 2. AIエージェントとは -->
+  <section>
+    <div class="section-label">
+      <span class="num">02</span>
+      <h2>AIエージェントとは？普通のAIチャットとの違い</h2>
+    </div>
+    <p>ChatGPTなどの「AIチャット」は質問すると文章で返してくれるだけです。一方、<strong>AIエージェント</strong>はコードを書くだけでなく、ファイルを読み込み、コマンドを実行し、バグを修正し、プルリクエスト（PR）まで作成する「自律的に動くAI」です。</p>
+
+    <div class="compare-grid">
+      <div class="compare-col">
+        <div class="compare-head">AIチャット（例：ChatGPT）</div>
+        <div class="compare-item"><span class="check">✓</span><span class="label">コード生成</span></div>
+        <div class="compare-item"><span class="cross">—</span><span class="label">ファイル操作</span></div>
+        <div class="compare-item"><span class="cross">—</span><span class="label">コマンド実行</span></div>
+        <div class="compare-item"><span class="cross">—</span><span class="label">複数ファイルの同時編集</span></div>
+        <div class="compare-item"><span class="cross">—</span><span class="label">自律的なタスク完了</span></div>
+      </div>
+      <div class="compare-col agent">
+        <div class="compare-head">AIエージェント（例：Claude Code）</div>
+        <div class="compare-item"><span class="check">✓</span><span class="label">コード生成</span></div>
+        <div class="compare-item"><span class="check">✓</span><span class="label">ファイル操作</span></div>
+        <div class="compare-item"><span class="check">✓</span><span class="label">コマンド実行</span></div>
+        <div class="compare-item"><span class="check">✓</span><span class="label">複数ファイルの同時編集</span></div>
+        <div class="compare-item"><span class="check">✓</span><span class="label">自律的なタスク完了（ツールにより差あり）</span></div>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--text2);">便利な反面、自動でコードを書き換えたりファイルを削除したりするため、使い方を誤ると取り返しのつかないミスが起きることもあります。初心者は「AIの変更は必ず目視で確認する」を鉄則にしましょう。</p>
+  </section>
+
+  <!-- 3. 立ち位置マップ + 比較表 -->
+  <section>
+    <div class="section-label">
+      <span class="num">03</span>
+      <h2>5大AIエージェント比較</h2>
+    </div>
+
+    <!-- 立ち位置マップ -->
+    <div class="map-wrap">
+      <p class="map-title">— TOOL POSITION MAP —</p>
+      <div class="position-map">
+        <div class="axis-x"></div>
+        <div class="axis-y"></div>
+        <!-- 軸ラベル -->
+        <span class="axis-label" style="top:2%;left:50%;transform:translateX(-50%);">▲ 自律型（エージェント）</span>
+        <span class="axis-label" style="bottom:2%;left:50%;transform:translateX(-50%);">▼ 補助型（コパイロット）</span>
+        <span class="axis-label" style="top:50%;left:1%;transform:translateY(-50%);">◀ 簡単</span>
+        <span class="axis-label" style="top:50%;right:1%;transform:translateY(-50%);">高機能 ▶</span>
+        <!-- ゾーン -->
+        <div class="zone-beginner"><span>初心者ゾーン</span></div>
+        <div class="zone-pro"><span>プロ開発者ゾーン</span></div>
+        <!-- ツール配置 -->
+        <!-- Copilot: 左下（簡単＆補助型） -->
+        <div class="tool-dot td-copilot" style="left:22%;top:72%;">
+          <div class="bubble">GitHub Copilot</div>
+          <div class="price">Free〜$10/月</div>
+        </div>
+        <!-- Cursor: 中央やや左・中段 -->
+        <div class="tool-dot td-cursor" style="left:36%;top:38%;">
+          <div class="bubble">Cursor</div>
+          <div class="price">Free〜$20/月</div>
+        </div>
+        <!-- Antigravity: 中央・上段 -->
+        <div class="tool-dot td-antigravity" style="left:54%;top:18%;">
+          <div class="bubble">Google Antigravity</div>
+          <div class="price">無料（プレビュー）</div>
+        </div>
+        <!-- Codex: 右上 -->
+        <div class="tool-dot td-codex" style="left:72%;top:26%;">
+          <div class="bubble">OpenAI Codex</div>
+          <div class="price">$20〜$200/月</div>
+        </div>
+        <!-- Claude Code: 最右上 -->
+        <div class="tool-dot td-claudecode" style="left:82%;top:10%;">
+          <div class="bubble">Claude Code</div>
+          <div class="price">$20〜$200/月</div>
+        </div>
+      </div>
+      <p style="font-size:11px;color:var(--text3);text-align:center;margin-top:10px;">左下からスタートし、慣れたら右上へ段階的にステップアップするのがおすすめです。</p>
+    </div>
+
+    <!-- 比較表 -->
+    <div class="tool-table-wrap">
+      <table class="tool-table">
+        <thead>
+          <tr>
+            <th>ツール</th>
+            <th>月額（目安）</th>
+            <th>初心者向け</th>
+            <th>自律性</th>
+            <th>主な用途</th>
+            <th>注意点</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="tool-name">GitHub Copilot</div></td>
+            <td>無料〜¥1,500<br><span class="tag-pill tag-free">固定料金</span></td>
+            <td><span class="stars">★★★★★</span></td>
+            <td>低〜中</td>
+            <td>IDE内の補完・チャット</td>
+            <td>高性能モデル使用時の追加料金</td>
+          </tr>
+          <tr>
+            <td><div class="tool-name">Cursor</div></td>
+            <td>無料〜¥3,000<br><span class="tag-pill tag-warn">超過に注意</span></td>
+            <td><span class="stars">★★★★</span><span style="color:var(--border)">★</span></td>
+            <td>中</td>
+            <td>AI統合IDE・複数ファイル編集</td>
+            <td>使用量超過で高額になる可能性</td>
+          </tr>
+          <tr>
+            <td><div class="tool-name">Google Antigravity</div></td>
+            <td>無料（プレビュー）<br><span class="tag-pill tag-free">将来有料化予定</span></td>
+            <td><span class="stars">★★★</span><span style="color:var(--border)">★★</span></td>
+            <td>高</td>
+            <td>自律型エージェント・IDE</td>
+            <td>動作が不安定なことも</td>
+          </tr>
+          <tr>
+            <td><div class="tool-name">OpenAI Codex</div></td>
+            <td>¥3,000〜¥30,000<br><span class="tag-pill tag-warn">従量課金あり</span></td>
+            <td><span class="stars">★★</span><span style="color:var(--border)">★★★</span></td>
+            <td>高</td>
+            <td>クラウド上でのタスク実行</td>
+            <td>料金が青天井になる可能性</td>
+          </tr>
+          <tr>
+            <td><div class="tool-name">Claude Code</div></td>
+            <td>¥3,000〜¥30,000<br><span class="tag-pill tag-danger">要ターミナル知識</span></td>
+            <td><span class="stars">★★</span><span style="color:var(--border)">★★★</span></td>
+            <td>最高</td>
+            <td>大規模コードベースの理解・改修</td>
+            <td>ピーク時に上限達しやすい</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:11px;color:var(--text3);">※ 料金は1ドル≒150円換算のおおよその目安です。</p>
+
+    <!-- 料金バーチャート -->
+    <p style="font-size:13px;font-weight:700;margin:32px 0 16px;">料金帯の視覚比較（月額USD）</p>
+    <div class="price-chart">
+      <div class="price-row">
+        <div class="price-name">GitHub Copilot</div>
+        <div class="price-bars">
+          <div class="bar bar-free" style="width:3%;">Free</div>
+          <div class="bar bar-g1" style="width:9%;">$10</div>
+          <div class="bar bar-g2" style="width:9%;">$19</div>
+        </div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Cursor</div>
+        <div class="price-bars">
+          <div class="bar bar-free" style="width:3%;">Free</div>
+          <div class="bar bar-t1" style="width:18%;">Pro $20</div>
+          <div class="bar bar-t2" style="width:40%;">Pro+ $60</div>
+        </div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Antigravity</div>
+        <div class="price-bars">
+          <div class="bar bar-a1" style="width:28%;">無料（プレビュー）</div>
+        </div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">OpenAI Codex</div>
+        <div class="price-bars">
+          <div class="bar bar-p1" style="width:18%;">Plus $20</div>
+          <div class="bar bar-p2" style="width:82%;">Pro $200</div>
+        </div>
+      </div>
+      <div class="price-row">
+        <div class="price-name">Claude Code</div>
+        <div class="price-bars">
+          <div class="bar bar-r1" style="width:18%;">Pro $20</div>
+          <div class="bar bar-r2" style="width:32%;">Max5x $100</div>
+          <div class="bar bar-r3" style="width:50%;">Max20x $200</div>
+        </div>
+      </div>
+      <div class="price-scale">
+        <span>$0</span><span style="text-align:center">$50</span><span style="text-align:center">$100</span><span style="text-align:center">$150</span><span>$200/月</span>
+      </div>
+    </div>
+    <p class="price-note">⚠ Cursorは使用量超過で追加課金が発生します。海外では月21万円以上の請求例も。使用量ダッシュボードを週次で確認しましょう。</p>
+  </section>
+
+  <!-- 4. 目的別おすすめ -->
+  <section>
+    <div class="section-label">
+      <span class="num">04</span>
+      <h2>目的別おすすめツール</h2>
+    </div>
+    <div class="purpose-grid">
+      <div class="purpose-card beginner">
+        <div class="p-tag">FOR BEGINNERS</div>
+        <h3>初心者向け</h3>
+        <div class="tools">
+          <span class="t-chip">GitHub Copilot</span>
+          <span class="t-chip">Cursor</span>
+        </div>
+        <p>VSCodeやJetBrainsにすぐ追加でき、コードを書きながらリアルタイムで補完してくれます。無料プランがあり、料金も明快です。Cursorは複数ファイルをまとめて編集する「Composerモード」が便利です。</p>
+      </div>
+      <div class="purpose-card fukugyou">
+        <div class="p-tag">FOR SIDE BUSINESS</div>
+        <h3>副業・収益化向け</h3>
+        <div class="tools">
+          <span class="t-chip">Cursor</span>
+          <span class="t-chip">OpenAI Codex</span>
+        </div>
+        <p>LP制作・業務自動化（GAS）・ブログ補助に最適です。CursorでHTML/CSSを素早く生成し納品したり、Codexでスプレッドシートの自動化スクリプトを作成したりできます。</p>
+      </div>
+      <div class="purpose-card pro">
+        <div class="p-tag">FOR PRO DEVELOPERS</div>
+        <h3>本格開発向け</h3>
+        <div class="tools">
+          <span class="t-chip">Claude Code</span>
+          <span class="t-chip">OpenAI Codex</span>
+        </div>
+        <p>大規模リファクタリング・テスト自動化・PR作成まで任せたい場合はClaude Codeが最有力候補。100万トークンのコンテキストウィンドウで大規模コードベース全体を一度に理解できます。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 各ツール解説 -->
+  <section>
+    <div class="section-label">
+      <span class="num">05</span>
+      <h2>各ツールの特徴と注意点</h2>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-card-head">
+        <div class="tool-icon ic-cop">GH</div>
+        <div>
+          <h3>GitHub Copilot</h3>
+          <div class="tc-sub">Microsoft / GitHub — IDE拡張型</div>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        <p>世界で最も普及しているAIコーディングアシスタント。VSCode・JetBrains・Neovim・Xcode・Visual Studioなど対応IDEが幅広く、既存の開発環境にそのまま追加できます。</p>
+        <div class="meta-grid">
+          <span class="meta-key">料金</span><span class="meta-val"><strong>無料プラン</strong>（月2,000回補完）／Pro 月約$10／Pro+ 月約$19</span>
+          <span class="meta-key">強み</span><span class="meta-val">IDE統合の深さ、固定料金で予算管理しやすい、GitHubとの完全連携</span>
+          <span class="meta-key">注意点</span><span class="meta-val">高性能モデルを使うと「プレミアムリクエスト」として追加料金が発生する場合あり。設定ダッシュボードで使用状況を確認しましょう。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-card-head">
+        <div class="tool-icon ic-cur">CU</div>
+        <div>
+          <h3>Cursor</h3>
+          <div class="tc-sub">Anysphere — AI-native IDE</div>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        <p>VS Codeをベースに作られたAIネイティブIDEです。複数ファイルを同時編集する「Composerモード」と、コードベース全体を索引化して質問できる機能が好評。2026年2月には自律クラウドエージェント機能もリリースされました。</p>
+        <div class="meta-grid">
+          <span class="meta-key">料金</span><span class="meta-val"><strong>無料プラン</strong>あり／Pro 月約$20（年払いで$16）／Pro+ 月約$60</span>
+          <span class="meta-key">強み</span><span class="meta-val">AI統合IDEとして最高レベルの操作性、サブエージェント機能、コードベースの深い理解</span>
+          <span class="meta-key">注意点</span><span class="meta-val">使用量が多い月は想定以上に請求されることがあります。</span>
+        </div>
+        <div class="alert-inline">
+          <span class="icon">⚠</span>
+          <span>海外では1か月で約21万円の請求を受けたケースも報告されています。使用量ダッシュボードを週次で必ず確認しましょう。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-card-head">
+        <div class="tool-icon ic-ant">AG</div>
+        <div>
+          <h3>Google Antigravity</h3>
+          <div class="tc-sub">Google — Agent-first IDE（パブリックプレビュー）</div>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        <p>2025年11月にGemini 3と同時発表されたGoogleの自律型AIエージェントIDEです。VS Codeのフォークをベースに、複数AIエージェントを並列で動かす「マネージャービュー」が特徴的です。</p>
+        <div class="meta-grid">
+          <span class="meta-key">料金</span><span class="meta-val"><strong>現在無料</strong>（パブリックプレビュー中）／将来的に有料化予定</span>
+          <span class="meta-key">強み</span><span class="meta-val">完全無料で試せる、Gemini 3 Pro・Claude Sonnet 4.6・GPT-OSSのマルチモデル対応</span>
+          <span class="meta-key">注意点</span><span class="meta-val">まだプレビュー段階で動作が不安定なことがあります。エージェントがファイルシステムやターミナル、ブラウザに自律的にアクセスするため、セキュリティ設定（「Asks for Review」ポリシー）を必ず確認しましょう。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-card-head">
+        <div class="tool-icon ic-cod">OA</div>
+        <div>
+          <h3>OpenAI Codex</h3>
+          <div class="tc-sub">OpenAI — クラウド型自律エージェント</div>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        <p>ChatGPT Plusプランに含まれる自律型エージェントです。クラウド上のサンドボックス環境でコードを実行するため、自分のPCへのインストールが不要です。2026年4月からビジネス向けにトークン従量課金シートも追加されました。</p>
+        <div class="meta-grid">
+          <span class="meta-key">料金</span><span class="meta-val">ChatGPT Plus（月約$20）に含む／Pro（月約$200）は利用量5倍</span>
+          <span class="meta-key">強み</span><span class="meta-val">ローカル環境不要、Claude Codeより約4倍のトークン効率とも言われる</span>
+          <span class="meta-key">注意点</span><span class="meta-val">Plusプランの利用上限は意外と少なく、本格開発には高額なProプランが必要になる場合あり。1Mトークンウィンドウ利用にはProプラン以上が必須。</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-card-head">
+        <div class="tool-icon ic-cla">CC</div>
+        <div>
+          <h3>Claude Code</h3>
+          <div class="tc-sub">Anthropic — ターミナルベース自律エージェント</div>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        <p>Anthropicが提供するターミナルベースのAIコーディングエージェントです。IDEではなくターミナルで動かします。100万トークンの大規模コンテキストにより、大きなプロジェクト全体を一度に理解できる点が最大の強みです。</p>
+        <div class="meta-grid">
+          <span class="meta-key">料金</span><span class="meta-val">Pro 月約$20／Max 5x 月約$100／Max 20x 月約$200（無料プランは非対応）</span>
+          <span class="meta-key">強み</span><span class="meta-val">100万トークンのコンテキストウィンドウ、複雑なマルチファイルタスク、IDE不要でどんなエディタとも併用可</span>
+          <span class="meta-key">注意点</span><span class="meta-val">ターミナル操作の基本知識が必須。ピーク時間帯（平日午前5時〜11時 太平洋時間）は利用制限が厳しくなることがあります。</span>
+        </div>
+        <div class="alert-inline">
+          <span class="icon">⚠</span>
+          <span>2026年4月にはバグにより想定より40%速く上限に達するケースが報告されています。バージョン管理に注意しましょう。</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 失敗しやすい罠 -->
+  <section>
+    <div class="section-label">
+      <span class="num">06</span>
+      <h2>初心者が失敗しやすい罠</h2>
+    </div>
+    <div class="trap-list">
+      <div class="trap-item danger">
+        <div class="trap-icon">🚫</div>
+        <div class="trap-body">
+          <h4>危険：自動実行コマンドに注意</h4>
+          <p>AIエージェントは <code>rm -rf</code>（ファイルの完全削除）、<code>git push</code>（未確認コードの送信）、無限ループによるAPI料金の青天井消費など、危険なコマンドを自動実行することがあります。コマンド実行前に「確認を求める（Ask for Review）」設定をオンにし、AIが変更したファイルは必ず目視確認してから承認しましょう。</p>
+        </div>
+      </div>
+      <div class="trap-item danger">
+        <div class="trap-icon">🔐</div>
+        <div class="trap-body">
+          <h4>危険：機密情報をAIに入力しない</h4>
+          <p>パスワード、APIキー、顧客の個人情報、社内の機密データなどをAIエージェントに渡すと情報漏洩につながります。AIエージェントに入力する内容は「公開しても問題ない情報のみ」を徹底してください。</p>
+        </div>
+      </div>
+      <div class="trap-item warn">
+        <div class="trap-icon">💸</div>
+        <div class="trap-body">
+          <h4>注意：従量課金は上限を必ず設定する</h4>
+          <p>API経由でClaude CodeやCodexを使う場合、使いすぎると月数万円〜数十万円になるケースもあります。AnthropicやOpenAIのダッシュボードで月の上限額を設定してから使い始めましょう。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. 副業に活かす手順 -->
+  <section>
+    <div class="section-label">
+      <span class="num">07</span>
+      <h2>AIエージェントを副業に活かす手順</h2>
+    </div>
+    <p>副業でAIエージェントを活用するには、いきなり高額プランに投資するのではなく、以下のステップで小さく始めることが大切です。</p>
+
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="step-box">
+          <div class="step-num">STEP 01</div>
+          <div class="step-title">学ぶ</div>
+          <div class="step-desc">Copilot無料でコード補完に慣れる</div>
+          <span class="step-tag tag-ok">無料でOK</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-box">
+          <div class="step-num">STEP 02</div>
+          <div class="step-title">作る</div>
+          <div class="step-desc">LP・スクリプト・自動化ツールを制作</div>
+          <span class="step-tag tag-ok">小さく始める</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-box">
+          <div class="step-num">STEP 03</div>
+          <div class="step-title">見せる</div>
+          <div class="step-desc">GitHub・SNSで公開してフィードバックを得る</div>
+          <span class="step-tag tag-ok">発信する</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-box">
+          <div class="step-num">STEP 04</div>
+          <div class="step-title">改善する</div>
+          <div class="step-desc">AIレビューで品質を上げる</div>
+          <span class="step-tag tag-caut">必ず自分でレビュー</span>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="step-box">
+          <div class="step-num">STEP 05</div>
+          <div class="step-title">案件化</div>
+          <div class="step-desc">クラウドソーシング・note販売</div>
+          <span class="step-tag tag-caut">誇大表現は使わない</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="action-bar" style="margin-top:8px;">
+      <div class="dot"></div>
+      <p>現実的な第一歩：まず「自分の業務でコピペしている作業」を1つAIに自動化させてみましょう。それが案件化・商品化の種になります。</p>
+    </div>
+  </section>
+
+  <!-- 8. FAQ -->
+  <section>
+    <div class="section-label">
+      <span class="num">08</span>
+      <h2>よくある質問</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q"><span class="q-mark">Q</span>無料で使えるAIコーディングツールはありますか？</div>
+        <div class="faq-a">はい。GitHub Copilotは月2,000回補完の無料プランがあります。Google Antigravityは現在パブリックプレビュー中で無料です。Codex CLIもオープンソースで無料（API利用料は別途）です。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="q-mark">Q</span>初心者でもAIエージェントで案件は受けられますか？</div>
+        <div class="faq-a">LP制作・簡単なスクリプト作成などの小さな案件なら可能です。ただしAIが生成したコードの品質を自分でレビュー・保証できることが前提です。品質チェックができないまま納品するとトラブルの原因になります。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="q-mark">Q</span>Claude CodeとCursorはどちらが良いですか？</div>
+        <div class="faq-a">用途が違います。Cursorはエディタとしての操作性を重視するエンジニア向け、Claude Codeはターミナルで動かし大規模なコードベース全体を扱いたいエンジニア向けです。多くのプロ開発者は両方を使い分けています。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="q-mark">Q</span>AIに書かせたコードの著作権は誰のものですか？</div>
+        <div class="faq-a">法的には現在も議論中ですが、基本的にはAIが生成したコードの責任は利用者にあります。納品物として使う際は必ず自分でレビューし、問題があれば修正する責任があることを理解しておきましょう。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. まとめ -->
+  <section>
+    <div class="section-label">
+      <span class="num">09</span>
+      <h2>まとめ：まずは小さく試そう</h2>
+    </div>
+
+    <div class="summary-table-wrap">
+      <table class="summary-table">
+        <thead>
+          <tr>
+            <th>状況</th>
+            <th>おすすめツール</th>
+            <th>始め方</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>初心者・とにかく試したい</td>
+            <td><span class="rec-chip">GitHub Copilot（無料）</span></td>
+            <td>VSCodeに拡張機能を追加</td>
+          </tr>
+          <tr>
+            <td>副業でLP・サイト制作したい</td>
+            <td><span class="rec-chip">Cursor（無料〜Pro）</span></td>
+            <td>Cursorをインストールして試す</td>
+          </tr>
+          <tr>
+            <td>無料で自律型を試したい</td>
+            <td><span class="rec-chip">Google Antigravity（無料）</span></td>
+            <td>antigravity.googleからDL</td>
+          </tr>
+          <tr>
+            <td>エンジニアで本格的に使いたい</td>
+            <td><span class="rec-chip">Claude Code（Pro〜）</span></td>
+            <td>Proプランに登録後CLIをインストール</td>
+          </tr>
+          <tr>
+            <td>OpenAIエコシステムが好き</td>
+            <td><span class="rec-chip">ChatGPT Plus（Codex含む）</span></td>
+            <td>ChatGPT Plusに登録</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin:24px 0 0;font-size:14px;">AIエージェントは使い方を誤ると課金トラブルや情報漏洩につながります。<strong>最初は無料プランで小さく試し、必要に応じてプランを上げていくのが一番の近道です。</strong></p>
+
+    <div class="today-box">
+      <h3>今日やること（3ステップ）</h3>
+      <ul class="today-steps">
+        <li><span class="n">1</span>GitHub Copilot無料プランに登録してVSCodeに入れてみる</li>
+        <li><span class="n">2</span>自分の業務でAI化できる作業を1つ書き出す</li>
+        <li><span class="n">3</span>Cursorの無料版でそのタスクを試してみる</li>
+      </ul>
+    </div>
+  </section>
+
+</div><!-- /wrap -->
+
+<footer>
+  <p>本記事は2026年5月時点の情報をもとに作成しています。料金・仕様は予告なく変更される場合があります。</p>
+  <p>最新情報は各公式サイトをご確認ください：
+    <a href="https://claude.com/pricing">claude.com/pricing</a> /
+    <a href="https://cursor.com/pricing">cursor.com/pricing</a> /
+    <a href="https://github.com/features/copilot/plans">GitHub Copilot</a> /
+    <a href="https://developers.openai.com/codex/pricing">OpenAI Codex</a> /
+    <a href="https://antigravity.google">antigravity.google</a>
+  </p>
+</footer>
+
+</body>
+</html>

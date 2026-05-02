@@ -1,6 +1,6 @@
 ---
-title: "AIエージェント徹底比較2026｜Claude Code・Codex・Antigravity・Cursor・Copilotの選び方"
-description: "Claude Code、Codex、Google Antigravity、Cursor、GitHub Copilotを初心者向けに比較。目的、料金目安、副業での使い方、失敗しやすい注意点まで整理します。"
+title: "AIエージェント徹底比較 2026｜Claude Code・Codex・Antigravity・Cursor・Copilot"
+description: "Claude Code、OpenAI Codex、Google Antigravity、Cursor、GitHub Copilotを初心者向けに比較。料金、使いやすさ、自律性、副業活用、注意点までわかりやすく解説します。"
 date: "2026-05-02"
 category: "AIエージェント比較"
 categorySlug: "agent-comparison"
