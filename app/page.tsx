@@ -46,6 +46,12 @@ const supportItems = [
   "スマホでも読みやすい記事導線",
 ];
 
+const articleVisuals: Record<string, string> = {
+  "ai-agent-hikaku-2026": "/ogp.svg",
+  "ai-automation-monetize-agent-comparison": "/images/ai-visual-lab-hero.png",
+  "ai-leak-guide": "/images/ai-visual-lab-hero.png",
+};
+
 export default function HomePage() {
   const articles = getAllArticles();
   const categories = getCategories();
@@ -56,9 +62,9 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="bg-ink text-white">
+      <section className="hero-motion bg-ink text-white">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:px-8 lg:py-16">
-          <div>
+          <div className="hero-copy">
             <p className="text-xs font-black uppercase tracking-[0.18em] text-coral">
               AI Guide & Visual Notes
             </p>
@@ -85,29 +91,34 @@ export default function HomePage() {
             </div>
           </div>
 
-          <article className="overflow-hidden rounded border border-white/10 bg-white shadow-soft">
+          <figure className="hero-visual-shell">
             <Link href={featuredHref} aria-label="特集記事を読む">
               <img
-                src="/ogp.svg"
-                alt="AIエージェント徹底比較の記事を紹介するアイキャッチ画像"
-                className="h-auto w-full border-b border-line"
+                src="/images/ai-visual-lab-hero.png"
+                alt="AIエージェント比較とAI自動化を図解するヒーロー画像"
+                className="hero-visual-image"
               />
             </Link>
-            <div className="grid gap-4 p-5 sm:p-6">
-              <p className="text-xs font-black uppercase tracking-[0.16em] text-sky">
-                Main Visual
-              </p>
-              <h2 className="font-serif text-2xl font-bold leading-snug tracking-normal text-ink sm:text-3xl">
-                <Link href={featuredHref} className="transition hover:text-sky">
-                  {featured?.title ?? "AIエージェント徹底比較 2026"}
-                </Link>
-              </h2>
-              <p className="text-sm leading-7 text-muted">
-                {featured?.description ??
-                  "初心者向けにAIエージェントの違いを比較します。"}
-              </p>
+            <figcaption className="hero-visual-caption">
+              <div className="hero-caption-slide hero-caption-slide-1">
+                <span>01</span>
+                AIエージェントを比較する
+              </div>
+              <div className="hero-caption-slide hero-caption-slide-2">
+                <span>02</span>
+                自動化の使い道を整理する
+              </div>
+              <div className="hero-caption-slide hero-caption-slide-3">
+                <span>03</span>
+                リスクを確認して安全に試す
+              </div>
+            </figcaption>
+            <div className="hero-slider-dots" aria-hidden="true">
+              <span />
+              <span />
+              <span />
             </div>
-          </article>
+          </figure>
         </div>
       </section>
 
@@ -121,11 +132,13 @@ export default function HomePage() {
               お知らせ
             </h2>
           </div>
-          <ul className="grid gap-2">
-            {newsItems.map((item) => (
+          <div className="news-ticker" aria-label="お知らせ">
+            <ul className="news-ticker-track">
+            {[...newsItems, ...newsItems].map((item, index) => (
               <li
-                key={`${item.date}-${item.label}`}
-                className="grid gap-1 rounded border border-line bg-paper px-4 py-3 text-sm sm:grid-cols-[110px_1fr] sm:items-center"
+                key={`${item.date}-${item.label}-${index}`}
+                aria-hidden={index >= newsItems.length}
+                className="news-ticker-item"
               >
                 <time className="font-mono text-xs font-bold text-sky">
                   {item.date}
@@ -133,7 +146,8 @@ export default function HomePage() {
                 <span className="text-muted">{item.label}</span>
               </li>
             ))}
-          </ul>
+            </ul>
+          </div>
         </div>
       </section>
 
@@ -155,7 +169,7 @@ export default function HomePage() {
             {businessAreas.map((area) => (
               <article
                 key={area.title}
-                className="flex min-h-[220px] flex-col rounded border border-line bg-surface p-6 shadow-soft transition hover:-translate-y-1 hover:border-sky hover:shadow-glow"
+                className="home-service-card flex min-h-[220px] flex-col rounded border border-line bg-surface p-6 shadow-soft transition hover:-translate-y-1 hover:border-sky hover:shadow-glow"
               >
                 <div className="grid h-12 w-12 place-items-center rounded-full bg-[#fef2f1] text-lg font-black text-sky">
                   AI
@@ -208,8 +222,15 @@ export default function HomePage() {
           {latestArticles.map((article) => (
             <article
               key={article.slug}
-              className="group flex h-full flex-col overflow-hidden rounded border border-line bg-surface shadow-soft transition hover:-translate-y-1 hover:border-sky hover:shadow-glow"
+              className="article-visual-card group flex h-full flex-col overflow-hidden rounded border border-line bg-surface shadow-soft transition hover:-translate-y-1 hover:border-sky hover:shadow-glow"
             >
+              <Link href={`/articles/${article.slug}`} aria-label={`${article.title}を読む`}>
+                <img
+                  src={articleVisuals[article.slug] ?? "/images/ai-visual-lab-hero.png"}
+                  alt={`${article.title}のアイキャッチ画像`}
+                  className="article-visual-thumb"
+                />
+              </Link>
               <div className="border-b border-line bg-ink px-5 py-4 text-white">
                 <p className="text-xs font-black uppercase tracking-[0.16em] text-coral">
                   Article
