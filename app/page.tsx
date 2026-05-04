@@ -63,12 +63,12 @@ export default function HomePage() {
   return (
     <>
       <section className="hero-motion bg-ink text-white">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:px-8 lg:py-16">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:px-8 lg:py-24">
           <div className="hero-copy">
             <p className="text-xs font-black uppercase tracking-[0.18em] text-coral">
-              AI Guide & Visual Notes
+              AI Guide &amp; Visual Notes
             </p>
-            <h1 className="mt-5 max-w-3xl font-serif text-4xl font-bold leading-tight tracking-normal sm:text-5xl">
+            <h1 className="mt-5 max-w-3xl font-serif text-4xl font-bold leading-tight tracking-normal sm:text-5xl lg:text-6xl">
               初心者に優しいAI活用を、図解と比較でカタチにします。
             </h1>
             <p className="mt-5 max-w-2xl text-sm leading-8 text-white/65">
@@ -78,13 +78,13 @@ export default function HomePage() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href={featuredHref}
-                className="inline-flex items-center justify-center rounded bg-sky px-5 py-3 text-sm font-bold text-white transition hover:bg-coral"
+                className="inline-flex items-center justify-center rounded-lg bg-sky px-6 py-3.5 text-sm font-bold text-white transition hover:bg-coral"
               >
                 特集記事を読む
               </Link>
               <Link
                 href="/articles"
-                className="inline-flex items-center justify-center rounded border border-white/25 px-5 py-3 text-sm font-bold text-white/80 transition hover:border-coral hover:text-white"
+                className="inline-flex items-center justify-center rounded-lg border border-white/25 px-6 py-3.5 text-sm font-bold text-white/80 transition hover:border-coral hover:text-white"
               >
                 記事一覧を見る
               </Link>
@@ -152,7 +152,7 @@ export default function HomePage() {
       </section>
 
       <section className="border-b border-line bg-paper">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8 lg:py-20">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.18em] text-coral">
               What We Organize
@@ -169,9 +169,9 @@ export default function HomePage() {
             {businessAreas.map((area) => (
               <article
                 key={area.title}
-                className="home-service-card flex min-h-[220px] flex-col rounded border border-line bg-surface p-6 shadow-soft transition hover:-translate-y-1 hover:border-sky hover:shadow-glow"
+                className="home-service-card flex min-h-[240px] flex-col rounded-2xl border border-line bg-surface p-8 shadow-soft transition hover:-translate-y-1.5 hover:border-sky hover:shadow-glow"
               >
-                <div className="grid h-12 w-12 place-items-center rounded-full bg-[#fef2f1] text-lg font-black text-sky">
+                <div className="grid h-12 w-12 place-items-center rounded-xl bg-[#fef2f1] text-lg font-black text-sky">
                   AI
                 </div>
                 <h3 className="mt-5 font-serif text-xl font-bold tracking-normal text-ink">
@@ -196,7 +196,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div className="max-w-3xl">
             <p className="text-xs font-black uppercase tracking-[0.18em] text-sky">
@@ -212,7 +212,7 @@ export default function HomePage() {
           </div>
           <Link
             href="/articles"
-            className="inline-flex w-fit rounded border border-line bg-surface px-4 py-3 text-sm font-bold text-sky transition hover:border-sky hover:bg-[#fef2f1]"
+            className="inline-flex w-fit rounded-xl border border-line bg-surface px-5 py-3 text-sm font-bold text-sky transition hover:border-sky hover:bg-[#fef2f1]"
           >
             すべての記事を見る
           </Link>
@@ -222,7 +222,7 @@ export default function HomePage() {
           {latestArticles.map((article) => (
             <article
               key={article.slug}
-              className="article-visual-card group flex h-full flex-col overflow-hidden rounded border border-line bg-surface shadow-soft transition hover:-translate-y-1 hover:border-sky hover:shadow-glow"
+              className="article-visual-card group flex h-full flex-col overflow-hidden rounded-2xl border border-line bg-surface shadow-soft transition hover:-translate-y-1.5 hover:border-sky hover:shadow-glow"
             >
               <Link href={`/articles/${article.slug}`} aria-label={`${article.title}を読む`}>
                 <img
@@ -242,7 +242,7 @@ export default function HomePage() {
               <div className="flex flex-1 flex-col p-5">
                 <Link
                   href={`/categories/${article.categorySlug}`}
-                  className="w-fit rounded bg-[#fef2f1] px-2.5 py-1 text-xs font-bold text-sky"
+                  className="w-fit rounded-full bg-[#fef2f1] px-3 py-1 text-xs font-bold text-sky"
                 >
                   {article.category}
                 </Link>
@@ -270,7 +270,7 @@ export default function HomePage() {
       </section>
 
       <section className="border-y border-line bg-surface">
-        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:px-8">
           <div>
             <p className="text-xs font-black uppercase tracking-[0.18em] text-coral">
               Editorial Policy
@@ -287,7 +287,7 @@ export default function HomePage() {
             {supportItems.map((item) => (
               <li
                 key={item}
-                className="rounded border border-line bg-paper px-4 py-4 text-sm font-bold text-ink"
+                className="rounded-xl border border-line bg-paper px-5 py-5 text-sm font-bold text-ink"
               >
                 {item}
               </li>
@@ -296,7 +296,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="mb-8 max-w-3xl">
           <p className="text-xs font-black uppercase tracking-[0.18em] text-sky">
             Categories

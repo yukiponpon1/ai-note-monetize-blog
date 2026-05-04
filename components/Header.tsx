@@ -3,7 +3,7 @@ import { SearchForm } from "@/components/SearchForm";
 import { navigation, siteConfig } from "@/lib/site";
 
 export const Header = () => (
-  <header className="sticky top-0 z-50 border-b border-[#3a3530] bg-ink text-white shadow-[0_8px_28px_rgba(26,23,20,0.18)]">
+  <header className="sticky top-0 z-50 border-b border-[#3a3530] bg-ink text-white shadow-[0_8px_32px_rgba(26,23,20,0.24)]">
     <div className="border-b border-white/10 bg-white/[0.03]">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-2 text-xs text-white/60 sm:px-6 lg:px-8">
         <p>AI活用を、図解と比較で分かりやすく。</p>
@@ -14,7 +14,7 @@ export const Header = () => (
     </div>
     <div className="mx-auto grid max-w-7xl gap-4 px-4 py-4 sm:px-6 lg:grid-cols-[auto_minmax(260px,360px)_auto] lg:items-center lg:px-8">
       <Link href="/" className="inline-flex min-w-0 items-center gap-3">
-        <span className="grid h-10 w-10 shrink-0 place-items-center rounded bg-sky text-sm font-black text-white">
+        <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-sky text-sm font-black text-white">
           AI
         </span>
         <span className="inline-flex min-w-0 flex-col">
@@ -37,7 +37,7 @@ export const Header = () => (
           <Link
             key={item.href}
             href={item.href}
-            className="rounded border border-transparent px-3 py-2 text-sm font-bold text-white/65 transition hover:border-white/10 hover:bg-white/5 hover:text-white"
+            className="rounded-lg border border-transparent px-3 py-2 text-sm font-bold text-white/65 transition hover:border-white/10 hover:bg-white/5 hover:text-white"
           >
             {item.label}
           </Link>
